@@ -1,0 +1,126 @@
+root{
+    --main_color1: #625EC9;
+    --main_color2: #BACAE8;
+    --main_color3: #B99CDE;
+    --main_color4: #C247AF;
+    --main_color5: #DF9FDF;
+    --main_color6: #AF71D0;
+    --main_color7: #ECE6C6;
+    --main_color8: #ABDFE3;
+    --main_color9: #D7BEE9;
+
+    --middle_panel_width: 3;
+    --left_panel_width: 1;
+    --right_panel_width: 1;
+}
+
+body {
+    margin: 0;
+}
+/*
+div {
+    border: 2px solid;
+    min-height: 5em;
+    min-width: 5em;
+    margin: 5px;
+    padding: 3px;
+}
+*/
+.grid {
+    display: grid;
+    grid-auto-rows: 200px;
+    grid-template-columns: var(--left_panel_width) var(--middle_panel_width) var(--right_panel_width);
+}
+
+.flexBody {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    min-height: 60em;
+}
+
+.flexMiddle {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+}
+
+.leftPanel{
+    flex-grow: 1;
+
+}
+
+.rightPanel {
+    flex-grow: 1;
+
+}
+
+.middlePanel {
+    flex-grow: 4;
+}
+
+
+
+.topPanel {
+
+}
+
+.mainPanel {
+
+}
+
+.Task {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.TaskNameAndChk {
+    flex-grow: 3;
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+}
+
+.TaskControls {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+.RoundABit {
+    border-radius: 0.2rem;
+}
+
+.TaskControlButtonEdit {
+
+}
+
+.TaskControlButtonSchedule {
+    height: 24px;
+    width: 24px;
+    background: 0;
+}
+
+.TaskControlButtonMore {
+
+}
+
+
+
+
+/*
+
+
+
+
+
+
+
+
+
+ */
