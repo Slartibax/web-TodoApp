@@ -2,19 +2,33 @@
     background-image: url(icons/schedule.svg);
     height: 27px;
     width: 27px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
 }
 
 .iconMore {
     background-image: url(icons/more.svg);
     height: 27px;
     width: 27px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
 }
 
 .iconEdit {
     background-image: url(icons/edit.svg);
     height: 27px;
     width: 27px;
-
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
 }
 
+.iconAddTask {
+    background-image: url(icons/addTask.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
 

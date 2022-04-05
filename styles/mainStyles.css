@@ -18,15 +18,8 @@ body {
     margin: 0;
 }
 
-/*
-div {
-    border: 2px solid;
-    min-height: 5em;
-    min-width: 5em;
-    margin: 5px;
-    padding: 3px;
-}
-*/
+
+
 
 .grid {
     display: grid;
@@ -96,8 +89,7 @@ div {
     max-width: 75%;
     display: flex;
     flex-wrap: nowrap;
-    align-content: center;
-    align-items: center;
+    padding: 1em;
 }
 
 .TaskControls {
