@@ -1,20 +1,20 @@
 .iconSchedule {
     background-image: url(icons/schedule.svg);
-    height: 26px;
-    width: 26px;
+    height: 27px;
+    width: 27px;
 }
 
 .iconMore {
     background-image: url(icons/more.svg);
-    height: 26px;
-    width: 26px;
+    height: 27px;
+    width: 27px;
 }
 
 .iconEdit {
     background-image: url(icons/edit.svg);
-    height: 26px;
-    width: 26px;
+    height: 27px;
+    width: 27px;
+
 }
-input {
-    border: #625ec8 1px solid;
-}
+
+
