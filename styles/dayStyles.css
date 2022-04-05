@@ -1,9 +1,10 @@
 .Day {
     display: flex;
     flex-direction: column;
-    max-width: 50%;
+    max-width: 40%;
     border: 2px black solid;
     border-radius: 0.7rem;
+    margin: 1em;
 }
 
 .dayListBlock {

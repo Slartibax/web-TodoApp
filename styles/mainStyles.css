@@ -18,7 +18,9 @@ body {
     margin: 0;
 }
 
-
+div {
+    border: 1px blue solid;
+}
 
 
 .grid {
@@ -56,11 +58,15 @@ body {
 
 
 .topPanel {
-
+    min-height: 5em;
 }
 
 .mainPanel {
 
+}
+
+.calendarPanel {
+    min-height: 4em;
 }
 
 .Task {

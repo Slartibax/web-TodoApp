@@ -1,0 +1,16 @@
+.weekDay a {
+    display: flex;
+    height:  4em;
+    width: 4em;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.calendar {
+    overflow: clip;
+    display: flex;
+    flex-direction: row;
+    max-width: fit-content;
+    border-radius: 0.6rem;
+}
