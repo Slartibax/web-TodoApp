@@ -5,19 +5,22 @@
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="styles/mainStyles.css" />
     <link rel="stylesheet" type="text/css" href="styles/navigationStyles.css" />
+    <link rel="stylesheet" type="text/css" href="styles/iconStyles.css" />
 </head>
 <body>
     <div><!--Плашка навигации, будет заполнена временными ссылками, поскольку навигация должна быть генерируемой-->
         <div class="userBlock"> <!-- Блок акаунта -->
-            <div>
+            <div class="profileNameAndImageBlock">
                 <div class="profileImage"><img src="" alt="error"></div>
-                <div></div>
+                <div class="profileName">Имя пользователя</div>
             </div><!--Изображение и ник-->
-                <div><!--Справка и настройки-->
-                    <div></div><!--Настройки-->
-                    <div></div><!--Справка-->
-            </div><!--Справка и настройки-->
-
+                <div class="profileButtonsBlock"><!--Справка и настройки-->
+                    <div class="center-content"><input class="profileButton icon iconSettings RoundABit" type="button"></div><!--Настройки-->
+                    <div class="center-content"><input class="profileButton icon iconProperties RoundABit" type="button"></div><!--Справка-->
+                </div><!--Справка и настройки-->
+                <div class="foldPanelButtonBlock">
+                    <div class="center-content"><input class="foldLeftPanelButton icon iconHamburgerMenu RoundABit" type="button"></div>
+                </div>
         </div>
         <div><!-- Навигация -->
             <div><!--Личные проекты-->

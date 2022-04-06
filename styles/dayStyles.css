@@ -1,7 +1,7 @@
 .Day {
     display: flex;
     flex-direction: column;
-    max-width: 40%;
+    max-width: 500px;
     border: 2px black solid;
     border-radius: 0.7rem;
     margin: 1em;

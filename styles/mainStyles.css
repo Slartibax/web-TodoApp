@@ -44,25 +44,30 @@ div {
 
 .leftPanel{
     flex-grow: 1;
+    resize: horizontal;
+    max-width: 300px;
+    margin: 10px;
 }
 
 .rightPanel {
     flex-grow: 1;
-
+    margin: 10px;
 }
 
 .middlePanel {
     flex-grow: 4;
+    margin: 10px;
 }
 
 
 
 .topPanel {
     min-height: 5em;
+    margin: 5px;
 }
 
 .mainPanel {
-
+    margin: 5px;
 }
 
 .calendarPanel {

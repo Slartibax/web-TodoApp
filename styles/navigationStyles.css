@@ -6,6 +6,8 @@
     padding: 10px;
     margin: 1px;
     border-radius: 0.5rem;
+    overflow: clip;
+    white-space: nowrap;
 }
 
 .navigationFold a{
@@ -17,15 +19,65 @@
     padding: 10px;
     font-size: 20px;
     border-radius: 0.5rem;
+    overflow: clip;
+    white-space: nowrap;
 }
 
 .userBlock {
     display: flex;
-    height: 6em;
+    height: 5.2em;
+    flex-direction: row;
+    width: auto;
+    margin: 4px;
+    padding: 4px;
+}
+
+.profileButtonsBlock {
+    display: flex;
+    flex-direction: column;
+    width: 10%;
+    align-content: center;
+    align-items: center;
+    padding: 3px;
+}
+
+.profileNameAndImageBlock {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
 }
 
 .profileImage{
-    border-radius: 1rem;
-    height: 1em;
-    width: 1em;
+    display: flex;
+    border-radius: 4rem;
+    height: 55px;
+    width: 55px;
+    max-height: 3em;
+    max-width: 3em;
+    justify-content: center;
+    align-content: center;
+    overflow: clip;
+    margin: 3px;
+}
+
+.profileButton {
+    height: 32px;
+    width: 32px;
+    margin: 2px;
+}
+
+.profileName {
+    font-size: 20px;
+    overflow: clip;
+    white-space: nowrap;
+}
+
+.foldPanelButtonBlock {
+    display: flex;
+    margin: 2px;
+}
+
+.foldLeftPanelButton {
+    width: 22px;
+    height: 100%;
 }
