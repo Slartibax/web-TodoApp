@@ -14,19 +14,29 @@ root{
     --right_panel_width: 1;
 }
 
+.backgroundGrad {
+    background-image: linear-gradient(360deg, rgb(98,94,201),rgb(186,202,232)),linear-gradient(405deg, rgb(185,156,222) 0%, rgb(185,156,222) 22%,rgb(194,71,175) 22%, rgb(194,71,175) 32%,rgb(223,159,223) 32%, rgb(223,159,223) 37%,rgb(175,113,208) 37%, rgb(175,113,208) 51%,rgb(236,230,198) 51%, rgb(236,230,198) 55%,rgb(171,223,227) 55%, rgb(171,223,227) 100%),linear-gradient(112.5deg, rgb(185,156,222) 0%, rgb(185,156,222) 22%,rgb(194,71,175) 22%, rgb(194,71,175) 32%,rgb(223,159,223) 32%, rgb(223,159,223) 37%,rgb(175,113,208) 37%, rgb(175,113,208) 51%,rgb(236,230,198) 51%, rgb(236,230,198) 55%,rgb(171,223,227) 55%, rgb(171,223,227) 100%),linear-gradient(360deg, rgb(185,156,222) 0%, rgb(185,156,222) 22%,rgb(194,71,175) 22%, rgb(194,71,175) 32%,rgb(223,159,223) 32%, rgb(223,159,223) 37%,rgb(175,113,208) 37%, rgb(175,113,208) 51%,rgb(236,230,198) 51%, rgb(236,230,198) 55%,rgb(171,223,227) 55%, rgb(171,223,227) 100%);
+    background-blend-mode:overlay, overlay, overlay, normal;
+}
+
+
+
 body {
     margin: 0;
 }
 
-div {
-    border: 1px blue solid;
+
+input[type="button"]{
+    background-color: inherit;
+    border-color: inherit;
 }
 
+a:hover{
+    background-color: rgba(0, 0, 0, 0.06);
+}
 
-.grid {
-    display: grid;
-    grid-auto-rows: 200px;
-    grid-template-columns: var(--left_panel_width) var(--middle_panel_width) var(--right_panel_width);
+input:hover {
+    cursor: pointer;
 }
 
 .flexBody {
@@ -34,6 +44,7 @@ div {
     flex-direction: row;
     flex-wrap: nowrap;
     min-height: 60em;
+    height: 100%;
 }
 
 .flexMiddle {
@@ -47,11 +58,14 @@ div {
     resize: horizontal;
     max-width: 300px;
     margin: 10px;
+    background-color: #b79bdd;
 }
 
 .rightPanel {
     flex-grow: 1;
     margin: 10px;
+    max-width: 300px;
+    background-color: #af71d0;
 }
 
 .middlePanel {
@@ -59,32 +73,19 @@ div {
     margin: 10px;
 }
 
-
-
 .topPanel {
     min-height: 5em;
     margin: 5px;
+    background-color: #625ec8;
 }
 
 .mainPanel {
     margin: 5px;
+    background-color: #BACAE8;
 }
 
 .calendarPanel {
     min-height: 4em;
-}
-
-.Task {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    word-wrap: break-word;
-}
-
-.taskName {
-    width:100%;
-    height:auto;
-    min-height:100%;
 }
 
 .center-content{
@@ -95,24 +96,15 @@ div {
     align-content: center;
 }
 
-.TaskNameAndChk {
-    flex-grow: 3;
-    max-width: 75%;
-    display: flex;
-    flex-wrap: nowrap;
-    padding: 1em;
-}
 
-.TaskControls {
-    flex-grow: 1;
-    max-width: 25%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-}
-
-.RoundABit {
+.round {
     border-radius: 0.2rem;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+a:visited { text-decoration: none; color:black; }
+a:focus { text-decoration: none; color:black; }
+a:hover, a:active { text-decoration: none; color:black }

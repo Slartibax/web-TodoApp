@@ -2,9 +2,8 @@
     display: flex;
     max-height: 1em;
     text-decoration: none;
-    border: 1px black solid;
     padding: 10px;
-    margin: 1px;
+    margin: 1px 10px;
     border-radius: 0.5rem;
     overflow: clip;
     white-space: nowrap;
@@ -14,7 +13,6 @@
     display: flex;
     text-decoration: none;
     height: 1.5em;
-    border: 1px black solid;
     margin: 5px;
     padding: 10px;
     font-size: 20px;
@@ -75,9 +73,22 @@
 .foldPanelButtonBlock {
     display: flex;
     margin: 2px;
+    width: 100%;
 }
 
 .foldLeftPanelButton {
-    width: 22px;
-    height: 100%;
+    width: 100%;
+    height: 32px;
+   margin: 4px;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.navigationListBlock {
+    overflow-y: scroll;
+    overflow-x: hidden;
 }

@@ -1,0 +1,45 @@
+.memberPicture {
+    border-radius: 3rem;
+    min-width: 40px;
+    min-height: 40px;
+}
+
+.membersTitleBlock {
+    height: 38px;
+    font-size: 28px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.memberFoldButton {
+    display: flex;
+    min-width: 32px;
+    width: 100%;
+    min-height: 32px;
+}
+
+.memberBlock {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 4px;
+}
+
+.memberName {
+    padding: 3px;
+}
+
+.members {
+    display: flex;
+    flex-direction: column;
+    margin: 4px;
+}
+
+.membersBlock {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}

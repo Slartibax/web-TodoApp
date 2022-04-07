@@ -11,6 +11,8 @@
     overflow: clip;
     display: flex;
     flex-direction: row;
-    max-width: fit-content;
     border-radius: 0.6rem;
+    margin: 1em;
+    max-width: 500px;
+    justify-content: space-around;
 }

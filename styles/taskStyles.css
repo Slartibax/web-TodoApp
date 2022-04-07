@@ -1,0 +1,52 @@
+
+
+.TaskNameAndChk {
+    display: flex;
+    flex-grow: 3;
+    max-width: 75%;
+    flex-wrap: nowrap;
+    padding: 5px;
+}
+
+.TaskControls {
+    flex-grow: 1;
+    max-width: 25%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+.Task {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    word-wrap: break-word;
+}
+
+.taskName {
+    display: flex;
+    width:100%;
+    height:auto;
+    min-height:100%;
+}
+
+.taskName a{
+    width:100%;
+    padding: 10px;
+    white-space: nowrap;
+}
+
+.check {
+    height: 20px;
+    width: 20px;
+}
+
+.checkArea {
+    display: flex;
+    align-items: center;
+    height: 25px;
+    width: 25px;
+}
+
+
