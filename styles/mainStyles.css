@@ -19,9 +19,6 @@ body {
     margin: 0;
 }
 
-div {
-    border: 1px blue solid;
-}
 
 input[type="button"]{
     background-color: inherit;
@@ -54,6 +51,7 @@ input:hover {
     flex-grow: 1;
     resize: horizontal;
     max-width: 300px;
+    min-width: 220px;
     margin: 10px;
 }
 
