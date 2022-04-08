@@ -42,4 +42,5 @@
     flex-wrap: nowrap;
     overflow-y: scroll;
     overflow-x: hidden;
+    background-color: inherit;
 }
