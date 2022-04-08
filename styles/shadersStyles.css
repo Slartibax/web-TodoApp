@@ -1,31 +1,33 @@
 .leftPanelShader {
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     background: rgb(194,71,175);
-    background: linear-gradient(225deg, rgba(194,71,175,1) 0%, rgba(223,159,223,1) 61%, rgba(185,156,222,1) 82%, rgba(215,190,233,1) 93%);
+    background: linear-gradient(90deg, rgba(194,71,175,1) 0%, rgba(220,152,210,1) 0%, rgba(228,175,220,1) 0%, rgba(251,243,250,1) 17%, rgba(255,255,255,1) 34%, rgba(249,253,253,1) 44%, rgba(250,253,253,1) 53%, rgba(255,255,255,1) 71%, rgba(221,242,244,1) 100%, rgba(171,223,227,1) 100%, rgba(255,255,255,1) 100%);
+
 }
 
 .mainPanelShader {
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-    background: rgb(185,156,222);
-    background: linear-gradient(336deg, rgba(185,156,222,1) 24%, rgba(171,223,227,1) 55%, rgba(236,230,198,1) 74%, rgba(175,113,208,1) 98%);
+    background: rgb(255,255,255);
+    background: linear-gradient(94deg, rgba(255,255,255,1) 41%, rgba(221,242,244,1) 100%, rgba(194,232,235,1) 100%, rgba(171,223,227,1) 100%, rgba(255,255,255,1) 100%, rgba(255,255,255,1) 100%);
 }
 
 
 .rightPanelShader {
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-    background: rgb(223,159,223);
-    background: linear-gradient(259deg, rgba(223,159,223,1) 9%, rgba(186,202,232,1) 42%, rgba(171,223,227,1) 83%);
+    background: rgb(194,71,175);
+    background: linear-gradient(277deg, rgba(194,71,175,1) 0%, rgba(220,152,210,1) 0%, rgba(228,175,220,1) 0%, rgba(251,243,250,1) 17%, rgba(255,255,255,1) 34%, rgba(249,253,253,1) 44%, rgba(250,253,253,1) 53%, rgba(255,255,255,1) 71%, rgba(221,242,244,1) 100%, rgba(171,223,227,1) 100%, rgba(255,255,255,1) 100%);
 }
 
 .topPanelShader {
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-    background: rgb(98,94,201);
-    background: radial-gradient(circle, rgba(98,94,201,1) 0%, rgba(185,156,222,1) 57%, rgba(186,202,232,1) 82%);
+    background: rgb(194,232,235);
+    background: radial-gradient(circle, rgba(194,232,235,1) 0%, rgba(255,255,255,1) 41%, rgba(221,242,244,1) 70%, rgba(171,223,227,1) 100%, rgba(255,255,255,1) 100%, rgba(255,255,255,1) 100%);
 }
 
 .mainBackground {
 
-    background-image: radial-gradient(circle at top center, rgb(98,94,201),rgb(186,202,232),rgb(185,156,222),rgb(194,71,175),rgb(223,159,223));
+    background: rgb(194,232,235);
+    background: radial-gradient(circle, rgba(194,232,235,1) 0%, rgba(255,255,255,1) 41%, rgba(221,242,244,1) 70%, rgba(171,223,227,1) 100%, rgba(255,255,255,1) 100%, rgba(255,255,255,1) 100%);
     background-attachment: fixed;
 
 
