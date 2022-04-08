@@ -5,9 +5,12 @@
     border: 2px black solid;
     border-radius: 0.7rem;
     margin: 1em;
+    background-color: inherit;
 }
 
 .dayListBlock {
+    display: flex;
+    flex-direction: column;
     border: 2px black solid;
     border-radius: 0.7rem;
     margin-right: 5px;
