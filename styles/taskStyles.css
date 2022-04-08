@@ -22,6 +22,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     word-wrap: break-word;
+    background-color: inherit;
 }
 
 .taskName {
