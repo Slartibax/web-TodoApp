@@ -1,0 +1,30 @@
+.headerBlock {
+    display: flex;
+    flex-direction: row;
+    padding: 4px;
+}
+
+.headerIcon {
+    margin:  10px;
+}
+
+.headerTitle {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.headerButton {
+    margin: 10px;
+    width: 32px ;
+    height: 32px ;
+}
+
+.headerEdit {
+    width: 32px ;
+    height: 32px ;
+}
+
+.headerInvite {
+    width: 32px ;
+    height: 32px ;
+}
