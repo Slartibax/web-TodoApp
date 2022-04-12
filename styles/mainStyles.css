@@ -100,3 +100,21 @@ a {
 a:visited { text-decoration: none; color:black; }
 a:focus { text-decoration: none; color:black; }
 a:hover, a:active { text-decoration: none; color:black }
+
+
+.mailConfirmPad {
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+    margin: 30px;
+    border-radius: 0.3rem;
+}
+
+.mailRedirectBlock {
+    height: 100px;
+    margin-top: 20px;
+}
+
+.mailRedirectButton {
+    padding: 10px;
+}
