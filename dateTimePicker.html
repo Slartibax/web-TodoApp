@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+    <script src="datePick/dist/the-datepicker.min.js"></script>
+    <link rel="stylesheet" href="datePick/dist/the-datepicker.css">
+
+    <script src="/timePick/dist/timepicker-ui.umd.js"></script>
+</head>
+<body>
+<div>
+    <div> <!--Блок выбора даты-->
+        <input type="text" id="my-input">
+    </div>
+</div>
+<script>
+    const input = document.getElementById('my-input');
+    const datepicker = new TheDatepicker.Datepicker(input);
+    datepicker.render();
+</script>
+</body>
+</html>
