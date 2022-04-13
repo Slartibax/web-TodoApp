@@ -118,3 +118,12 @@ a:hover, a:active { text-decoration: none; color:black }
 .mailRedirectButton {
     padding: 10px;
 }
+
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}

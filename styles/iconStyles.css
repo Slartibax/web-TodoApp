@@ -45,3 +45,9 @@
 .iconInvite {
     background-image: url(icons/invite.svg);
 }
+
+.iconTrash {
+    background-image: url(icons/trash.svg);
+    height: 27px;
+    width: 27px;
+}
