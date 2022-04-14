@@ -1,9 +1,13 @@
 .dayWindowDateBlock {
     margin-right: auto;
+    padding: 5px 5px 5px 10px;
+}
+.dayWindowNameBlock {
+    padding: 5px 5px 5px 10px;
 }
 .dayWindowButtonsBlock {
     margin-left: auto;
-    justify-content: space-between;
+    justify-content: space-around;
     min-width: 100px;
 }
 
@@ -14,10 +18,16 @@
     padding: 8px;
 }
 
+.dayWindowDescriptionClick {
+   display: flex;
+}
+
 .dayWindowDescriptionBlock {
-    padding: 10px;
+    padding: 5px;
+    margin: 10px;
 }
 
 .dayWindow {
     margin: 10px;
+    max-width: 500px;
 }

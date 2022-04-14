@@ -10,11 +10,12 @@
 
 .TaskControls {
     flex-grow: 1;
-    max-width: 25%;
+    min-width: 130px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-around;
+    max-width: 130px;
 }
 
 .Task {
@@ -35,7 +36,8 @@
 .taskName a{
     width:100%;
     padding: 10px;
-    white-space: nowrap;
+    max-width: 320px;
+
 }
 
 .check {

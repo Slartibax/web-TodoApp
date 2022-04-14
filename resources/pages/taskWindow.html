@@ -15,18 +15,18 @@
     <link rel="stylesheet" type="text/css" href="../css/taskWindowStyles.css"/>
 </head>
 <body>
-<div class="flex-column dayWindow"><!--Индивидуальное окно задачи-->
-    <div class="flex-row"> <!--Чекбокс и название-->
+<div class="flex-column dayWindow dayShader"><!--Индивидуальное окно задачи-->
+    <div class="flex-row dayWindowNameBlock"> <!--Чекбокс и название-->
         <div class="center-content"><!--Чекбокс-->
             <input class="check" type="checkbox">
         </div>
         <div class="center-content"><!--Название-->
-            <a class="dayWindowNameClick round"><label>NAME_PLACEHOLDER</label></a>
+            <a class="dayWindowNameClick round "><label>NAME_PLACEHOLDER</label></a>
         </div>
     </div>
     <div class="flex-row"> <!--Дата и кнопки-->
         <div class="center-content dayWindowDateBlock round"><!-- Дата -->
-            <a class="dayWindowDateClick round"><label >DATE_PLACEHOLDER</label></a>
+            <a class="dayWindowDateClick round dayShader"><label >DATE_PLACEHOLDER</label></a>
         </div>
         <div class="flex-row dayWindowButtonsBlock"><!--Блок кнопок-->
             <div class="center-content"><!-- Кнопка переноса -->
@@ -40,12 +40,12 @@
             </div>
         </div>
     </div>
-    <div class="round dayWindowDescriptionBlock"><!--Описание задачи-->
-        <a class="round"><label>
+    <div class="round dayWindowDescriptionBlock descriptionShader"><!--Описание задачи-->
+        <a class="round dayWindowDescriptionClick">
             ТЕКСТ ОПИСАНИЕ ЗАДАЧИ ТЕКСТ ОПИСАНИЕ ЗАДАЧИ
             ТЕКСТ ОПИСАНИЕ ЗАДАЧИ ТЕКСТ ОПИСАНИЕ ЗАДАЧИ
             ТЕКСТ ОПИСАНИЕ ЗАДАЧИ ТЕКСТ ОПИСАНИЕ ЗАДАЧИ
-            </label></a>
+           </a>
     </div>
     <div class="flex-column round"><!--Список подзадач-->
 

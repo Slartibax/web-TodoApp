@@ -90,4 +90,6 @@
 
 .navigationListBlock {
     overflow-x: hidden;
+    margin: 4px;
+    padding-bottom: 10px;
 }
