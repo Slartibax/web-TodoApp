@@ -1,18 +1,3 @@
-root{
-    --main_color1: #625EC9;
-    --main_color2: #BACAE8;
-    --main_color3: #B99CDE;
-    --main_color4: #C247AF;
-    --main_color5: #DF9FDF;
-    --main_color6: #AF71D0;
-    --main_color7: #ECE6C6;
-    --main_color8: #ABDFE3;
-    --main_color9: #D7BEE9;
-
-    --middle_panel_width: 3;
-    --left_panel_width: 1;
-    --right_panel_width: 1;
-}
 
 
 body {
@@ -22,14 +7,20 @@ body {
 
 input[type="button"]{
     background-color: inherit;
-    border-color: inherit;
+    transition: box-shadow .1s,color .1s,background .1s;
+    cursor: pointer;
+    font-family: Inter,sans-serif;
+    white-space: nowrap;
+    border: none;
+    text-decoration: none;
+    border-radius: 8px;
 }
-
 a:hover{
     background-color: rgba(0, 0, 0, 0.06);
 }
 
 input:hover {
+    background-color: rgba(0, 0, 0, 0.06);
     cursor: pointer;
 }
 
@@ -69,6 +60,9 @@ input:hover {
 .topPanel {
     min-height: 5em;
     margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .mainPanel {

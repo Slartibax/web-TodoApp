@@ -28,14 +28,14 @@
 
 .iconSettings {
     background-image: url(icons/settings.svg);
-    height: 32px;
-    width: 32px;
+    height: 27px;
+    width: 27px;
 }
 
 .iconProperties {
     background-image: url(icons/properties.svg);
-    height: 32px;
-    width: 32px;
+    height: 27px;
+    width: 27px;
 }
 
 .iconHamburgerMenu {
@@ -44,6 +44,8 @@
 
 .iconInvite {
     background-image: url(icons/invite.svg);
+    height: 27px;
+    width: 27px;
 }
 
 .iconTrash {
