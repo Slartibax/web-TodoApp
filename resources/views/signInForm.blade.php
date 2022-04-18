@@ -1,0 +1,248 @@
+<DOCTYPE html>
+    <html>
+        <head>
+            <link rel="stylesheet" type="text/css" href="../css/formStyles.css" />
+            <style>
+                div {
+                    display: flex;
+                    flex: 1;
+                    min-height: 22em;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .formBlock {
+                    display: flex;
+                }
+
+                .formBlockLeftBG {
+                    background-color: #AF9164;
+                    box-shadow: #b9c9e7;
+                    border-bottom-left-radius: 0.25rem;
+                    border-top-left-radius: 0.25rem;
+                }
+
+                .formBlockRightBG{
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    padding-left: 10px;
+                    border-radius: 0.2rem;background: #F7F3E3;
+                    box-shadow: #af71d0;
+                }
+
+                .signUpFormBody {
+                    background-image: linear-gradient(227deg, rgba(37,37,37,0.2) 0%,transparent 8%),linear-gradient(125deg, rgba(37,37,37,0.2) 0%,transparent 58%),linear-gradient(321deg, rgba(37,37,37,0.2) 0%,transparent 47%),linear-gradient(130deg, rgba(37,37,37,0.2) 0%,transparent 23%),linear-gradient(270deg, rgba(60,60,60,0.95) 0%,transparent 1%),linear-gradient(90deg, rgba(56,56,56,0.95) 0%,transparent 1%),repeating-linear-gradient(236deg, rgba(140,140,140,0.1) 0px,transparent 4px),repeating-linear-gradient(90deg, rgba(140,140,140,0.1) 0px,transparent 4px),repeating-linear-gradient(277deg, rgba(140,140,140,0.1) 0px,transparent 4px),linear-gradient(90deg, rgb(111,26,7),rgb(111,26,7));
+                    font-family: Georgia;
+                }
+
+                .signInFormBody {
+                    font-family: Georgia;
+                    background-image: linear-gradient(227deg, rgba(37,37,37,0.2) 0%,transparent 8%),linear-gradient(125deg, rgba(37,37,37,0.2) 0%,transparent 58%),linear-gradient(321deg, rgba(37,37,37,0.2) 0%,transparent 47%),linear-gradient(130deg, rgba(37,37,37,0.2) 0%,transparent 23%),linear-gradient(270deg, rgba(60,60,60,0.95) 0%,transparent 1%),linear-gradient(90deg, rgba(56,56,56,0.95) 0%,transparent 1%),repeating-linear-gradient(236deg, rgba(140,140,140,0.1) 0px,transparent 4px),repeating-linear-gradient(90deg, rgba(140,140,140,0.1) 0px,transparent 4px),repeating-linear-gradient(277deg, rgba(140,140,140,0.1) 0px,transparent 4px),linear-gradient(90deg, rgb(111,26,7),rgb(111,26,7));
+                }
+
+                .formBlockLeftMarg {
+                    margin: 3px;
+                }
+
+                @media only screen {
+                    .noneIfWindowBig{
+                        display: none;
+                    }
+                    .formBlockLeft {
+                        flex: 2;
+                        min-width: 20em;
+                        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -2px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -12px inset;
+                    }
+                    .formBlockRight {
+                        flex: 1;
+                        min-width: 15em;
+                        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+                        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+                        box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+                    }
+                    .formBlock {
+                        min-width: 40em;
+                        display: flex;
+                    }
+                }
+
+                @media only screen and (max-width: 700px) {
+                    .noneIfWindowBig{
+                        display: block;
+                    }
+                    .formBlockLeft {
+                        flex: 0;
+                        display: none;
+                    }
+                    .formBlockRight {
+                        box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+                        flex: 1;
+                        min-width: 15em;
+                        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+                        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+                        box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+                    }
+                    .formBlock {
+                        display: flex;
+                        min-width: 13em;
+                        max-width: 15em;
+                        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+                    }
+                }
+
+                input[type="password"], input[type="email"] {
+                    display: block;
+                    width: 100%;
+                    padding-top: 0px;
+                    border: none;
+                    font-size: 15px;
+                    background-color: transparent;
+                    color: black;
+                }:focus{
+                     outline: none;
+                 }
+
+                .bar {
+                    min-height: unset;
+                    display: block;
+                    background: #6F1A07;
+                    content: "";
+                    width: auto;
+                    height: 3px;
+                    position: relative;
+                    max-height: 3px;
+                    top: -7px;
+                    border: transparent;
+                }
+
+                #leftHighlightedText {
+                    background-color: white;
+                }
+
+                .bn3637 {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 0.15rem 1.2rem;
+                    font-family: "Poppins", sans-serif;
+                    font-weight: 700;
+                    font-size: 15px;
+                    text-align: center;
+                    text-decoration: none;
+                    color: #fff;
+                    backface-visibility: hidden;
+                    border: 0.3rem solid transparent;
+                    border-radius: 0.3rem;
+                    max-width: 7em;
+                    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+                }
+
+                .submitButtonShader {
+                    background-color: #CACDCE;
+                }
+                .redirectButtonShader {
+                    background-color: #fff;
+                }
+
+                .bn37 {
+                    border-color: transparent;
+                    color: #000;
+                    transition: transform 0.2s cubic-bezier(0.5, 0, 0.05, 0.95);
+                }
+
+                .bn37:hover {
+                    transform: perspective(1px) scale3d(1.044, 1.044, 1) translateZ(0) !important;
+                }
+
+                .font-sans {
+                    font-family: "Poppins", sans-serif;
+                }
+
+                .center-content {
+                    display: grid;
+                    justify-content: center;
+                }
+
+                .font-rightPart {
+                    font-family: "Georgia", serif;
+                }
+
+                .cbx {
+                    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+                }
+
+                .textShadow {
+                    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+                }
+            </style>
+
+        </head>
+        <body class="signInFormBody">
+            <div></div>
+            <div>
+                <div></div>
+                <div class="formBlock">
+                    <div class="formBlockLeft formBlockLeftBG">
+                        <table>
+                            <tr>
+                                <td><span id="leftHighlightedText">Don't have account yet?</span></td>
+                            </tr>
+                            <tr>
+                                <td class="center-content">
+                                    <a href="../pages/signUpForm.html" class="bn3637 bn37 redirectButtonShader">Sign Up</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="formBlockRight formBlockRightBG">
+                       <form action="" method="post">
+                           {{ csrf_field() }}
+                           <table>
+                                    <tr>
+                                        <td class="font-rightPart textShadow">Username of email</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="email" id="email" name="email">
+                                            <hr class="bar">
+                                        </td>
+                                   </tr>
+                                    <tr style="height: 15px"></tr>
+                                    <tr>
+                                        <td class="font-rightPart textShadow">Password</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="password" id="password" name="password">
+                                            <hr class="bar">
+                                        </td>
+                                    </tr>
+                                    <tr style="height: 15px"></tr>
+                                    <tr>
+                                        <td>
+                                            <label>
+                                                <input class="cbx" type="checkbox" name="remember_me" value="Remember me" id="remember_me">  Remember me
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr style="height: 20px"></tr>
+                                    <tr>
+                                        <td class="center-content"><input class="bn3637 bn37 submitButtonShader" type="submit" value="Sign In"></td>
+                                    </tr>
+                                    <tr style="height: 15px"></tr>
+                                    <tr class="noneIfWindowBig">
+                                        <td class="center-content">
+                                            <a href="../pages/signUpForm.html">Create account.</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </form>
+                    </div>
+
+                </div>
+                <div></div>
+            </div>
+            <div></div>
+        </body>
+    </html>

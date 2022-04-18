@@ -3,20 +3,18 @@
 <html>
 <head>
     <title>Title</title>
-    <script src="datePick/dist/the-datepicker.min.js"></script>
-    <link rel="stylesheet" href="datePick/dist/the-datepicker.css">
-
-    <script src="/timePick/dist/timepicker-ui.umd.js"></script>
+	
 </head>
 <body>
 <div>
     <div> <!--Блок выбора даты-->
-        <input type="text" id="my-input">
+        <input type="text" id="date-input">
     </div>
 </div>
 <script>
-    const input = document.getElementById('my-input');
+    const input = document.getElementById('date-input');
     const datepicker = new TheDatepicker.Datepicker(input);
+	datepicker.options.setMinDate('today');
     datepicker.render();
 </script>
 </body>
