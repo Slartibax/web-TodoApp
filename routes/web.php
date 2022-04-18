@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SignInController;
+use App\Http\Controllers\SignUpController;
+use App\Http\Controllers\WorkspaceController;
+use App\Http\Controllers\MailConfirmController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +17,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::prefix('/auth')->group(function (){
+    Route::get('signIn',[SignInController::class, 'show']);
+    Route::get('signUp',[SignUpController::class, 'show']);
+    Route::get('mailConfirm/required',[MailConfirmController::class, 'show']);
+    Route::get('mailConfirm/confirmed',[MailConfirmController::class, 'show']);
+
+    Route::post('signIn',[SignInController::class,'index']);
+    Route::post('signUp',[SignUpController::class,'create']);
 });
+
+Route::get('/workspace/{projectId}',[WorkspaceController::class,'show']);
+
+Route::fallback(function (){return redirect('/auth/signIn');});
+
+
+
+
+
