@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class SignUpController extends Controller
 {
@@ -11,9 +12,12 @@ class SignUpController extends Controller
     }
 
     //Создание нового пользовател
-    public function create(){
-
-
-
+    public function create(Request $request){
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
+        return dd($request->all());
     }
 }

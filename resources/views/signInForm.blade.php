@@ -197,10 +197,10 @@
                     </div>
                     <div class="formBlockRight formBlockRightBG">
                        <form action="" method="post">
-                           {{ csrf_field() }}
+                           @csrf
                            <table>
                                     <tr>
-                                        <td class="font-rightPart textShadow">Username of email</td>
+                                        <td class="font-rightPart textShadow">Email</td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -222,7 +222,7 @@
                                     <tr>
                                         <td>
                                             <label>
-                                                <input class="cbx" type="checkbox" name="remember_me" value="Remember me" id="remember_me">  Remember me
+                                                <input class="cbx" type="checkbox" name="remember_me" id="remember_me">  Remember me
                                             </label>
                                         </td>
                                     </tr>
