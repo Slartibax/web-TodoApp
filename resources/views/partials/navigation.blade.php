@@ -1,27 +1,16 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-        "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-    <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="../css/mainStyles.css" />
-    <link rel="stylesheet" type="text/css" href="../css/navigationStyles.css" />
-    <link rel="stylesheet" type="text/css" href="../css/iconStyles.css" />
-    <link rel="stylesheet" type="text/css" href="../css/shadersStyles.css" />
-</head>
-<body>
     <div class="navigation"><!--Плашка навигации, будет заполнена временными ссылками, поскольку навигация должна быть генерируемой-->
         <div class="foldPanelButtonBlock">
-            <input class="foldLeftPanelButton icon iconHamburgerMenu round" type="button">
+            <input class="foldLeftPanelButton icon iconHamburgerMenu round" type="button" id="navigationFold">
         </div>
 
         <div class="userBlock round navigationBlockShader"> <!-- Блок акаунта -->
             <div class="profileNameAndImageBlock">
                 <div class="profileImage"><img src="" alt="error"></div>
-                <div class="profileName">Имя пользователя</div>
+                <div class="profileName">{{$user['name']}}</div>
             </div><!--Изображение и ник-->
                 <div class="profileButtonsBlock"><!--Справка и настройки-->
-                    <div class="center-content"><input class="profileButton icon iconSettings round" type="button"></div><!--Настройки-->
-                    <div class="center-content"><input class="profileButton icon iconProperties round" type="button"></div><!--Справка-->
+                    <div class="center-content"><input class="profileButton icon iconSettings round" type="button" id="settings"></div><!--Настройки-->
+                    <div class="center-content"><input class="profileButton icon iconProperties round" type="button" id="about"></div><!--Справка-->
                 </div><!--Справка и настройки-->
         </div>
         <div class="navigationListBlock round navigationBlockShader"><!-- Навигация -->
@@ -30,11 +19,7 @@
                     <a href="">Личные проекты</a>
                 </div>
                 <div class="navigationItem">
-
-                    <a href="">Личный проект 1</a>
-                    <a href="">Личный проект 2</a>
-                    <a href="">Личный проект 3</a>
-
+                    @each('partials.navigationElement', $projects['personal'], 'navigationElement')
                 </div>
             </div>
             <div><!--Общие проекты-->
@@ -42,14 +27,8 @@
                    <a href="">Общие проекты</a>
                </div>
                 <div class="navigationItem">
-
-                    <a href="">Общий проект 1</a>
-                    <a href="">Общий проект 2</a>
-                    <a href="">Общий проект 3</a>
-
+                    @each('partials.navigationElement', $projects['shared'], 'navigationElement')
                 </div>
             </div>
         </div>
     </div>
-</body>
-</html>

@@ -1,7 +1,7 @@
 <DOCTYPE html>
     <html>
         <head>
-            <link rel="stylesheet" type="text/css" href="../css/formStyles.css" />
+            <link rel="stylesheet" type="text/css" href="../../public/css/formStyles.css" />
             <style>
                 div {
                     display: flex;
