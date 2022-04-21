@@ -3,7 +3,7 @@
         <img class="round " src="" alt="icon">
     </div>
     <div class="headerTitle center-content"><!--Title-->
-        {{$project['name']}}
+        {{$project['project_name']}}
     </div>
     <div class="headerButton center-content"><!--Edit button-->
         <button class="round icon iconEdit headerEdit" id="{{$project['id']}}-Edit"></button>

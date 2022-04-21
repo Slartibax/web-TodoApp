@@ -1,1 +1,3 @@
-@each('partials.day',$project['days'],'day')
+@foreach($project['days'] as $date => $tasks)
+    @include('partials.day',['day' => ['date' => $date, 'tasks' => $tasks]])
+@endforeach

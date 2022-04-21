@@ -87,7 +87,7 @@ div {
     }
 }
 
-input[type="password"], input[type="email"] {
+input[type="password"], input[type="email"], input[type="text"] {
     display: block;
     width: 100%;
     padding-top: 0px;

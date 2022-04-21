@@ -121,3 +121,10 @@ a:hover, a:active { text-decoration: none; color:black }
     display: flex;
     flex-direction: column;
 }
+
+.createTaskButtonPanel{
+    max-width: 400px;
+    border-radius: 0.2rem;
+    margin: 1em 1em 1em 66px;
+    height: 30px;
+}

@@ -581,6 +581,13 @@
             margin: 10px;
             max-width: 500px;
         }
+
+        .createTaskButtonPanel{
+            max-width: 400px;
+            border-radius: 0.2rem;
+            margin: 1em 1em 1em 66px;
+            height: 30px;
+        }
     </style>
 @endsection
 @section('content')
@@ -595,6 +602,9 @@
                 <div class="mainPanel round mainPanelShader">
                     <div class="calendarPanel"> <!-- calendar-->
                         @yield('calendarPanel')
+                    </div>
+                    <div class="createTaskButtonPanel dayShader"> <!-- calendar-->
+                        @yield('createTaskButton')
                     </div>
                     <div> <!-- TaskList -->
                         @yield('mainPanel')

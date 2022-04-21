@@ -1,20 +1,21 @@
 @extends('layouts.dashboard')
 @section('leftPanel')
-    @include('partials.navigation',['user' => $user, 'projects' => $projects])
+    @include('partials.navigation',['user' => $data['user'], 'projects' => $data['options']])
 @endsection
 
 @section('topPanel')
-    @include('partials.projectHeader',['project' => $project])
+    @include('partials.projectHeader',['project' => $data['project']['head']])
 @endsection
+
 
 @section('calendarPanel')
     @include('partials.weekCalendar')
 @endsection
 
 @section('mainPanel')
-    @include('partials.project', ['project' => $project])
+    @include('partials.project', ['project' => $data['project']])
 @endsection
 
 @section('rightPanel')
-    @include('partials.members')
+    @include('partials.members',['members' => $data['members']])
 @endsection
