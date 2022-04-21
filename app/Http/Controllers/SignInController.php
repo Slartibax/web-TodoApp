@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,7 +14,6 @@ class SignInController extends Controller
         return view('signInForm');
     }
 
-
     public function authenticate(Request $request){
         $credentials =$request->validate([
             'email' => ['required','email'],
@@ -22,7 +22,10 @@ class SignInController extends Controller
 
         if (Auth::attempt($credentials)){
             $request->session()->regenerate();
-            return redirect()->intended('/workspace');
+            $user = User::query()->where('email',$credentials['email'])->first();
+            $project = Project::query()->where('owner_id',$user->id)->first();
+            return redirect()->route('dashboard.show',['user' => $user, 'project' => $project->id]);
+            //return dd([$user, $user->id, $project, $credentials]);
         }
 
         return back()->withErrors([
@@ -30,9 +33,8 @@ class SignInController extends Controller
         ]);
     }
 
-    //Валидация авторизации
     public function index(Request $request){
-
-        return dd([$request->all(),User::all()->all()]);
+        $this->authenticate($request);
+        return redirect()->route('dashboard.show',['project' => 3]);
     }
 }
