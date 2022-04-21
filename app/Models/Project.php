@@ -32,6 +32,6 @@ class Project extends Model
     }
 
     public function getSortedDays(){
-        return $this->getDays()->sortKeys();
+        return $this->getDays()->sortKeys()->toArray();
     }
 }
