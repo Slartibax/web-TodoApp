@@ -8,8 +8,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Task extends Model
 {
-    use HasFactory/*, SoftDeletes*/;
+    use HasFactory, SoftDeletes;
 
     protected $table = 'tasks';
-    protected $dates = [/*'deleted_at', */'created_at', 'updated_at'];
+    protected $dates = ['deleted_at', 'created_at', 'updated_at'];
+
+//Relations
+
+    public function project(){
+        return $this->belongsTo(Project::class,'owner_id');
+    }
 }

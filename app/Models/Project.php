@@ -16,22 +16,28 @@ class Project extends Model
     protected $fillable = ['project_name'];
     protected $guarded = ['id', 'owner_id', 'created_at', 'updated_at'];
 
-
-    public function getTasks(): \Illuminate\Database\Eloquent\Collection|array
+    public function days(): Collection
     {
-        return Task::query()->where('project_id',$this->id)->get();
-    }
-
-    public function getDays(): Collection
-    {
-        //TODO Сделать проверки на существование нужных полей модели
-        $tasks = $this->getTasks();
-        return $tasks->mapToGroups(function ($item, $key){
+        return $this->tasks->mapToGroups(function ($item, $key){
             return [$item->schedule_date => $item];
         });
     }
 
-    public function getSortedDays(){
-        return $this->getDays()->sortKeys()->toArray();
+    public function sortedDays(): array{
+        return $this->days()->sortKeys()->toArray();
+    }
+
+
+    //Relations
+    public function tasks(){
+        return $this->hasMany(Task::class);
+    }
+
+    public function owner(){
+        return $this->belongsTo(User::class,'owner_id');
+    }
+
+    public function members(){
+        return $this->belongsToMany(User::class,'users_projects','project_id');
     }
 }
