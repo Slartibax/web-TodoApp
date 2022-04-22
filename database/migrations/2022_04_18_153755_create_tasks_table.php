@@ -15,17 +15,12 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('parent_task_id')->nullable();
             $table->foreignId('project_id');
-            $table->string('task_name',70);
+            $table->string('name',70);
             $table->date('schedule_date');
             $table->string('task_description',250)->nullable();
             $table->timestamps();
             $table->softDeletes();
-
-            $table->foreign('parent_task_id')
-                ->references('id')->on('tasks')
-                ->onDelete('cascade');
 
             $table->foreign('project_id')
                 ->references('id')->on('projects')

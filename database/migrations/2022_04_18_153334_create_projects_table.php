@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('owner_id');
             $table->timestamps();
-            $table->string('project_name',70);
+            $table->string('name',70);
 
             $table->foreign('owner_id')
                 ->references('id')->on('users')
