@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('project_id');
             $table->string('name',70);
             $table->date('schedule_date');
-            $table->string('task_description',250)->nullable();
+            $table->string('description',250)->nullable();
             $table->timestamps();
             $table->softDeletes();
 

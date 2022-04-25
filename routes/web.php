@@ -29,8 +29,11 @@ use App\Http\Controllers\MailConfirmController;
 
 Route::middleware('auth')->prefix('/dashboard')->group(function (){
     Route::get('project/{project}',[DashboardController::class,'show'])->name('dashboard.show');
-    Route::post('project/{project}',[TaskController::class,'create'])->name('task.create');
-    Route::get('project/{project}/task/{task}',[TaskController::class, 'show'])->name('task.show');
+    /*Route::post('project/{project}',[TaskController::class,'create'])->name('task.create');*/
+
+    //TODO Т.к. я пока не знаю как правильно использвать разные ресурсныые контроллеры в SPA, без помощи жабаскрипта, это будет временным решением.
+    Route::resource('project/{project}/p',\App\Http\Controllers\ProjectResourceController::class);
+    Route::resource('project/{project}/t',\App\Http\Controllers\TaskResourceController::class);
 });
 
 

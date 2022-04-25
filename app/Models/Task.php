@@ -13,6 +13,8 @@ class Task extends Model
     protected $table = 'tasks';
     protected $dates = ['deleted_at', 'created_at', 'updated_at'];
 
+    protected $fillable = ['name', 'description', 'schedule_date', 'project_id'];
+
 //Relations
 
     public function project(){
