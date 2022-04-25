@@ -92,53 +92,53 @@
 }
 
 .iconSchedule {
-    background-image: url(icons/schedule.svg);
+    background-image: url(css/icons/schedule.svg);
     height: 35px;
     width: 35px;
 }
 
 .iconMore {
-    background-image: url(icons/more.svg);
+    background-image: url(css/icons/more.svg);
     background-size: 27px;
     height: 35px;
     width: 35px;
 }
 
 .iconEdit {
-    background-image: url(icons/edit.svg);
+    background-image: url(css/icons/edit.svg);
     height: 35px;
     width: 35px;
 }
 
 .iconAddTask {
-    background-image: url(icons/addTask.svg);
+    background-image: url(css/icons/addTask.svg);
     height: 35px;
 }
 
 .iconSettings {
-    background-image: url(icons/settings.svg);
+    background-image: url(css/icons/settings.svg);
     height: 35px;
     width: 35px;
 }
 
 .iconProperties {
-    background-image: url(icons/properties.svg);
+    background-image: url(css/icons/properties.svg);
     height: 35px;
     width: 35px;
 }
 
 .iconHamburgerMenu {
-    background-image: url(icons/hamburgerMenu.svg);
+    background-image: url(css/icons/hamburgerMenu.svg);
 }
 
 .iconInvite {
-    background-image: url(icons/invite.svg);
+    background-image: url(css/icons/invite.svg);
     height: 35px;
     width: 35px;
 }
 
 .iconTrash {
-    background-image: url(icons/trash.svg);
+    background-image: url(css/icons/trash.svg);
     height: 35px;
     width: 35px;
 }

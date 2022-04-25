@@ -1,7 +1,7 @@
 <DOCTYPE html>
     <html>
         <head>
-            <link rel="stylesheet" type="text/css" href="../css/formStyles.css" />
+            <link rel="stylesheet" type="text/css" href="../../public/css/formStyles.css" />
             <style>
                 div {
                     display: flex;
@@ -190,7 +190,7 @@
                             </tr>
                             <tr>
                                 <td class="center-content">
-                                    <a href="../pages/signUpForm.html" class="bn3637 bn37 redirectButtonShader">Sign Up</a>
+                                    <a href="{{route('signUp.show')}}" class="bn3637 bn37 redirectButtonShader">Sign Up</a>
                                 </td>
                             </tr>
                         </table>
@@ -233,7 +233,7 @@
                                     <tr style="height: 15px"></tr>
                                     <tr class="noneIfWindowBig">
                                         <td class="center-content">
-                                            <a href="../pages/signUpForm.html">Create account.</a>
+                                            <a href="{{route('signUp.show')}}">Create account.</a>
                                         </td>
                                     </tr>
                                 </table>

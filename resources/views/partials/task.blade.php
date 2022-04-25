@@ -4,7 +4,7 @@
             <input class="check" type="checkbox">
         </div>
         <div class="taskName round chkShader">
-            <a class="round" id="{{$task['id']}}" href="">{{$task['task_name']}}</a>
+            <a class="round" id="{{$task['id']}}" href="">{{$task['name']}}</a>
         </div>
     </div>
     <div class="TaskControls">

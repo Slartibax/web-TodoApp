@@ -2,7 +2,7 @@
     <head>
         <title>@yield('title','TODO app')</title>
         @section('styles')
-            <link rel="stylesheet" type="text/css" href="{{\Illuminate\Support\Facades\URL::asset('css/app.css')}}">
+            <link rel="stylesheet" type="text/css" href="{{\Illuminate\Support\Facades\URL::asset('app.css')}}">
         @show
     </head>
 

@@ -1,4 +1,6 @@
 @extends('layouts.dashboard')
+@include('partials.taskForm')
+
 @section('leftPanel')
     @include('partials.navigation',['user' => $data['user'], 'projects' => $data['options']])
 @endsection
