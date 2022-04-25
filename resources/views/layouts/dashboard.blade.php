@@ -13,6 +13,16 @@
     <link type="text/css" rel="stylesheet" href="{{asset('css/navigationStyles.css')}}">
 @endsection
 
+@section('modal')
+    <input class="modal-state" id="modal-1" type="checkbox" />
+    <div class="modal">
+        <label class="modal__bg" for="modal-1"></label>
+        <div class="modal__inner">
+            <label class="modal__close" for="modal-1"></label>
+            @include('partials.taskForm')
+        </div>
+    </div>
+@endsection
 @section('content')
         <div class="flexBody mainBackground">
             <div class="leftPanel round leftPanelShader ">
@@ -27,7 +37,8 @@
                         @yield('calendarPanel')
                     </div>
                     <div class="createTaskButtonPanel dayShader">
-                        <button id="createTask" class="icon iconAddTask createTaskButton"></button>
+                        <label id="createTask" for="modal-1" class="icon iconAddTask createTaskButton btn"></label>
+{{--                        <button id="createTask btn" for="modal-1" class="icon iconAddTask createTaskButton"></button>--}}
                     </div>
                     <div> <!-- TaskList -->
                         @yield('mainPanel')

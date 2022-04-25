@@ -1,5 +1,4 @@
 @extends('layouts.dashboard')
-@include('partials.taskForm')
 
 @section('leftPanel')
     @include('partials.navigation',['user' => $data['user'], 'projects' => $data['options']])
@@ -8,7 +7,6 @@
 @section('topPanel')
     @include('partials.projectHeader',['project' => $data['project']['head']])
 @endsection
-
 
 @section('calendarPanel')
     @include('partials.weekCalendar')
@@ -21,3 +19,4 @@
 @section('rightPanel')
     @include('partials.members',['members' => $data['members']])
 @endsection
+

@@ -8,6 +8,7 @@
 
     <body>
         <div class="container">
+            @yield('modal')
             @yield('content')
         </div>
         @section('scripts')
