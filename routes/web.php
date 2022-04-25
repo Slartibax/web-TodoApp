@@ -1,9 +1,10 @@
 <?php
 
+use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SignInController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SignUpController;
-use App\Http\Controllers\WorkspaceController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MailConfirmController;
 
 /*
@@ -17,20 +18,24 @@ use App\Http\Controllers\MailConfirmController;
 |
 */
 
+    Route::get('/login',[LoginController::class, 'show'])->name('login.show');
+    Route::get('/signUp',[SignUpController::class, 'show'])->name('signUp.show');
+    Route::get('/mailConfirm/required',[MailConfirmController::class, 'show'])->name('mailConfirm.required');
+    Route::get('/mailConfirm/confirmed',[MailConfirmController::class, 'show'])->name('mailConfirm.confirmed');
 
-Route::prefix('/auth')->group(function (){
-    Route::get('signIn',[SignInController::class, 'show']);
-    Route::get('signUp',[SignUpController::class, 'show']);
-    Route::get('mailConfirm/required',[MailConfirmController::class, 'show']);
-    Route::get('mailConfirm/confirmed',[MailConfirmController::class, 'show']);
+    Route::post('/login',[LoginController::class,'authenticate'])->name('login.auth');
+    Route::post('/signUp',[SignUpController::class,'create'])->name('signUp.create');
+    Route::get('logout',[LoginController::class,'logout'])->name('logout');
 
-    Route::post('signIn',[SignInController::class,'index']);
-    Route::post('signUp',[SignUpController::class,'create']);
+Route::middleware('auth')->prefix('/dashboard')->group(function (){
+    Route::get('project/{project}',[DashboardController::class,'show'])->name('dashboard.show');
+    Route::post('project/{project}',[TaskController::class,'create'])->name('task.create');
+    Route::get('project/{project}/task/{task}',[TaskController::class, 'show'])->name('task.show');
 });
 
-Route::get('/workspace/{projectId}',[WorkspaceController::class,'show']);
 
-Route::fallback(function (){return redirect('/auth/signIn');});
+
+Route::fallback(function (){return redirect()->route('login.show');});
 
 
 
