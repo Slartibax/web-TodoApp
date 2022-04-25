@@ -13,8 +13,8 @@ class Project extends Model
 
     protected $table = 'projects';
 
-    protected $fillable = ['project_name'];
-    protected $guarded = ['id', 'owner_id', 'created_at', 'updated_at'];
+    protected $fillable = ['name', 'owner_id'];
+    protected $guarded = ['id', 'created_at', 'updated_at'];
 
     public function days(): Collection
     {
