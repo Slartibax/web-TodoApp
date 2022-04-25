@@ -14,14 +14,23 @@
 @endsection
 
 @section('modal')
-    <input class="modal-state" id="modal-1" type="checkbox" />
-    <div class="modal">
-        <label class="modal__bg" for="modal-1"></label>
-        <div class="modal__inner">
-            <label class="modal__close" for="modal-1"></label>
-            @include('partials.taskForm')
-        </div>
+<input class="modal-state" id="modal-1" type="checkbox" />
+<div class="modal">
+    <label class="modal__bg" for="modal-1"></label>
+    <div class="modal__inner">
+        <label class="modal__close" for="modal-1"></label>
+        @include('partials.taskForm')
     </div>
+</div>
+
+<input class="modal-state" id="modal-2" type="checkbox" />
+<div class="modal">
+    <label class="modal__bg" for="modal-2"></label>
+    <div class="modal__inner-2">
+        <label class="modal__close" for="modal-2"></label>
+        @include('partials.projectForm')
+    </div>
+</div>
 @endsection
 @section('content')
         <div class="flexBody mainBackground">
@@ -37,7 +46,7 @@
                         @yield('calendarPanel')
                     </div>
                     <div class="createTaskButtonPanel dayShader">
-                        <label id="createTask" for="modal-1" class="icon iconAddTask createTaskButton btn"></label>
+                        <label id="createTask" for="modal-1" class="icon iconAddTask createTaskButton"></label>
 {{--                        <button id="createTask btn" for="modal-1" class="icon iconAddTask createTaskButton"></button>--}}
                     </div>
                     <div> <!-- TaskList -->

@@ -7,6 +7,7 @@
         @each('partials.task',$day['tasks'],'task')
     </div>
     <div class="center-content"><!--Блок кнопки-->
-        <input class="dayAddButtonBlock icon iconAddTask" type="button" id="addTask-{{$day['date']}}">
+        <label class="dayAddButtonBlock icon iconAddTask" for="modal-1" id="addTask-{{$day['date']}}"> </label>
+{{--        <input class="dayAddButtonBlock icon iconAddTask" type="button" id="addTask-{{$day['date']}}">--}}
     </div>
 </div>

@@ -30,5 +30,8 @@
                     @each('partials.navigationElement', $projects['shared'], 'navigationElement')
                 </div>
             </div>
+            <div class="navigationItem center-content">
+                <label id="createProject" for="modal-2" class="icon iconAddTask createTaskButton"></label>
+            </div>
         </div>
     </div>
