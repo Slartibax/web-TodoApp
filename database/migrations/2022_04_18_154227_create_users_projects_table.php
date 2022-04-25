@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('users_projects', function (Blueprint $table) {
             $table->foreignId('user_id');
             $table->foreignId('project_id');
-            $table->tinyInteger('flags');
+            $table->tinyInteger('flags')->default(0);
 
             $table->foreign('user_id')
                 ->references('id')->on('users')

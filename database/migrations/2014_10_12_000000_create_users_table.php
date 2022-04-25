@@ -20,7 +20,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('profile_picture_path')
-                ->default('/public/storage/users data/profile pictures/default.png');
+                ->default('default.png');
             $table->rememberToken();
             $table->timestamps();
         });
