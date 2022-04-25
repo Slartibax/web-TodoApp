@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -13,12 +14,18 @@ class SignUpController extends Controller
 
     //Создание нового пользовател
     public function create(Request $request){
-        $user = new User();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password =  bcrypt($request->password);
+        //New user creation
+        $user = new User(['name'=>$request->name, 'email'=>$request->email, 'password' => bcrypt($request->password)]);
         $user->save();
 
-        return redirect()->route('dashboard.show');
+        //initial project creation
+        $project = new Project(['name'=> "My Tasks", 'owner_id'=>$user->id]);
+        $project->save();
+
+        //Create relation in intermediate table
+        $user->projects()->attach($project->id);
+
+        //TODO Реализовать инициализацию нового юзера(создание нового личного проекта)
+        return redirect()->route('dashboard.show',['project' => $project->id]);
     }
 }
