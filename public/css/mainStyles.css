@@ -1,15 +1,8 @@
-
-
 html, body {
     height: 100%;
     width: 100%;
+    margin: 0;
 }
-
-.container {
-    display: flex;
-    min-height: 100%;
-}
-
 
 input[type="button"], button, label[for="modal-1"],  label[for="modal-2"]{
     background-color: inherit;

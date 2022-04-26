@@ -2,16 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Task;
 use App\Models\User;
 use App\Models\Project;
-use App\Models\User_Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
-use Illuminate\View\View;
-use phpDocumentor\Reflection\Types\Null_;
-
 
 class DashboardController extends Controller
 {
@@ -24,8 +18,13 @@ class DashboardController extends Controller
             return redirect()->route('dashboard.show',['project'=>$user->projects()->first()->id]);
         }
 
-        $personal = $user->projects;
-        $shared = $user->projects;
+        $personal = $user->projects->filter(function($value, $key) {
+            return count($value->members) < 2;
+        });
+        $shared = $user->projects->filter(function($value, $key) {
+            return count($value->members) >= 2;
+        });
+
         $members = $project->members;
         $options = ['personal' => $personal, 'shared' => $shared];
         $project = [ 'head' => $project, 'days' => $project->sortedDays()];

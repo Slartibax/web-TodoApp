@@ -14,7 +14,7 @@ class SignUpController extends Controller
 
     //Создание нового пользователя
     public function create(Request $request){
-        if(!empty(User::query()->where('email',$request->email)->get())){
+        if(User::query()->where('email',$request->email)->exists()){
             return back()->withErrors([
                 'email' => 'Указанный адрес электронной почты уже занят'
             ]);
