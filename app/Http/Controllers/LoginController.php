@@ -40,7 +40,7 @@ class LoginController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'Credentials do not match!'
+            'email' => 'Введен неверный логин или пароль'
         ]);
     }
 
