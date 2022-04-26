@@ -12,8 +12,14 @@ class SignUpController extends Controller
         return view('signUpForm');
     }
 
-    //Создание нового пользовател
+    //Создание нового пользователя
     public function create(Request $request){
+        if(!empty(User::query()->where('email',$request->email)->get())){
+            return back()->withErrors([
+                'email' => 'Указанный адрес электронной почты уже занят'
+            ]);
+        }
+
         //New user creation
         $user = new User(['name'=>$request->name, 'email'=>$request->email, 'password' => bcrypt($request->password)]);
         $user->save();
@@ -25,7 +31,6 @@ class SignUpController extends Controller
         //Create relation in intermediate table
         $user->projects()->attach($project->id);
 
-        //TODO Реализовать инициализацию нового юзера(создание нового личного проекта)
         return redirect()->route('dashboard.show',['project' => $project->id]);
     }
 }

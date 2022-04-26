@@ -28,6 +28,13 @@
                 <form action="" method="post">
                     @csrf
                     <table>
+                        @if($errors->any())
+                            <tr class="errorsRow">
+                                <td>
+                                    {{$errors->first('email')}}
+                                </td>
+                            </tr>
+                        @endif
                         <tr>
                             <td class="font-rightPart textShadow">EMail</td>
                         </tr>
