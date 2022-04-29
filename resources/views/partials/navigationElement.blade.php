@@ -1,3 +1,3 @@
 <div>
-    <a href="{{route('dashboard.show',['project' => $navigationElement->id])}}">{{$navigationElement->name}}</a>
+    <a href="{{route('project.show',['project' => $navigationElement->id])}}">{{$navigationElement->name}}</a>
 </div>

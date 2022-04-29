@@ -11,9 +11,16 @@
     <link type="text/css" rel="stylesheet" href="{{asset('css/taskStyles.css')}}">
     <link type="text/css" rel="stylesheet" href="{{asset('css/taskWindowStyles.css')}}">
     <link type="text/css" rel="stylesheet" href="{{asset('css/navigationStyles.css')}}">
+
+
+
+
+
+
+
 @endsection
 
-@section('modal')
+{{--@section('modal')
 <input class="modal-state" id="modal-1" type="checkbox" />
 <div class="modal">
     <label class="modal__bg" for="modal-1"></label>
@@ -31,7 +38,7 @@
         @include('partials.projectForm')
     </div>
 </div>
-@endsection
+@endsection--}}
 @section('content')
         <div class="flexBody mainBackground">
             <div class="leftPanel round leftPanelShader ">
@@ -46,8 +53,7 @@
                         @yield('calendarPanel')
                     </div>
                     <div class="createTaskButtonPanel dayShader">
-                        <label id="createTask" for="modal-1" class="icon iconAddTask createTaskButton"></label>
-{{--                        <button id="createTask btn" for="modal-1" class="icon iconAddTask createTaskButton"></button>--}}
+                        @yield('createTaskButton')
                     </div>
                     <div> <!-- TaskList -->
                         @yield('mainPanel')

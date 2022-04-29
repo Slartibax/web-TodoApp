@@ -16,7 +16,7 @@ class LoginController extends Controller
         }
         if (Auth::check()){
             $user = User::query()->find(Auth::id());
-            return redirect()->route('dashboard.show',['project'=> $user->projects()->first()]);
+            return redirect()->route('project.show',['project'=> $user->projects()->first()]);
         }
         return view('signInForm');
     }
@@ -25,7 +25,7 @@ class LoginController extends Controller
         //TODO Возможно лишняя проверка
         if (Auth::check()){
             $user = User::query()->find(Auth::id());
-            return redirect()->route('dashboard.show',['project'=> $user->projects()->first()]);
+            return redirect()->route('project.show',['project'=> $user->projects()->first()]);
         }
 
         $credentials =$request->validate([
@@ -36,7 +36,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)){
             $request->session()->regenerate();
             $user = User::query()->where('email',$credentials['email'])->first();
-            return redirect()->route('dashboard.show',['project' => $user->projects->first()->id]);
+            return redirect()->route('project.show',['project' => $user->projects->first()->id]);
         }
 
         return back()->withErrors([

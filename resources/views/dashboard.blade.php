@@ -12,6 +12,15 @@
     @include('partials.weekCalendar')
 @endsection
 
+@section('createTaskButton')
+{{--    <label id="createTask" for="modal-1" href="{{route('task.create',['project' => $data['project']['head']->id])}}" class="icon iconAddTask createTaskButton"></label>--}}
+    <label id="createTask" for="task.create" class="icon iconAddTask createTaskButton">
+        <a id="task.create" href="{{route('task.create',['project' => $data['project']['head']->id])}}" class="createTaskButton"></a>
+    </label>
+
+{{--    <button id="createTask btn" for="modal-1" class="icon iconAddTask createTaskButton"></button>--}}
+@endsection
+
 @section('mainPanel')
     @include('partials.project', ['project' => $data['project']])
 @endsection

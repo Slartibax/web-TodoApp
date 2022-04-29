@@ -27,7 +27,6 @@ class Project extends Model
         return $this->days()->sortKeys()->toArray();
     }
 
-
     //Relations
     public function tasks(){
         return $this->hasMany(Task::class);

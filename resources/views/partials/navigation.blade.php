@@ -31,7 +31,10 @@
                 </div>
             </div>
             <div class="navigationItem center-content">
-                <label id="createProject" for="modal-2" class="icon iconAddTask createTaskButton"></label>
+{{--                <label id="createProject" for="modal-2" class="icon iconAddTask createTaskButton"></label>--}}
+                <label id="createProject" for="project.create" class="icon iconAddTask createProjectButton">
+                    <a id="project.create" href="{{route('project.create')}}" class="createProjectButton"></a>
+                </label>
             </div>
         </div>
     </div>
