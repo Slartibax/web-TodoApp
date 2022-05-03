@@ -7,15 +7,6 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-### About project
-Этот проект по теме 'Разработка веб приложения планирования задач, с поддержкой коммандной работы'.
-Данный проект не просто университетское задание. Я использую этот проект чтобы продемонстрировать своих навыки в разработке на PHP с использованием Laravel.
-
-
-
-
-
-
 
 
 
