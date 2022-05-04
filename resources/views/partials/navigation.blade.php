@@ -9,7 +9,10 @@
                 <div class="profileName">{{$user['name']}}</div>
             </div><!--Изображение и ник-->
                 <div class="profileButtonsBlock"><!--Справка и настройки-->
-                    <div class="center-content"><input class="profileButton icon iconSettings round" type="button" id="settings"></div><!--Настройки-->
+                    <form class="center-content" method="post" action="/logout">
+                        @csrf
+                        <button class="profileButton icon iconSettings round" type="submit" id="settings"></button>
+                    </form><!--Настройки-->
                     <div class="center-content"><input class="profileButton icon iconProperties round" type="button" id="about"></div><!--Справка-->
                 </div><!--Справка и настройки-->
         </div>

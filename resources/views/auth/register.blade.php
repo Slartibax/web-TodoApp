@@ -19,7 +19,7 @@
                     </tr>
                     <tr>
                         <td class="center-content">
-                            <a href="signInForm.blade.php" class="bn3637 bn37 redirectButtonShader">Sign In</a>
+                            <a href="{{route('login')}}" class="bn3637 bn37 redirectButtonShader">Sign In</a>
                         </td>
                     </tr>
                 </table>
@@ -81,7 +81,7 @@
                         </tr>
                         <tr class="noneIfWindowBig">
                             <td class="center-content">
-                                <a href="signInForm.blade.php">I have account already.</a>
+                                <a href="{{route('login')}}">I have account already.</a>
                             </td>
                         </tr>
                     </table>

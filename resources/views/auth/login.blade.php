@@ -19,7 +19,7 @@
                         </tr>
                         <tr>
                             <td class="center-content">
-                                <a href="{{route('signUp.show')}}" class="bn3637 bn37 redirectButtonShader">Sign Up</a>
+                                <a href="{{route('register')}}" class="bn3637 bn37 redirectButtonShader">Sign Up</a>
                             </td>
                         </tr>
                     </table>
@@ -58,7 +58,7 @@
                             <tr>
                                 <td>
                                     <label>
-                                        <input class="cbx" type="checkbox" name="remember_me" id="remember_me"> Remember
+                                        <input class="cbx" type="checkbox" name="remember" id="remember"> Remember
                                         me
                                     </label>
                                 </td>
@@ -71,7 +71,7 @@
                             <tr style="height: 15px"></tr>
                             <tr class="noneIfWindowBig">
                                 <td class="center-content">
-                                    <a href="{{route('signUp.show')}}">Create account.</a>
+                                    <a href="{{route('register')}}">Create account.</a>
                                 </td>
                             </tr>
                         </table>
