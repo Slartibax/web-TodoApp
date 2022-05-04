@@ -4,32 +4,36 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use App\Models\Task;
-use Couchbase\RegexpSearchQuery;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory as FactoryAlias;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use function PHPUnit\Framework\isNull;
 
 class TaskResourceController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->authorizeResource(Task::class);
+    }
+
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return void
      */
-    public function index(Request $request)
+    public function index(Project $project)
     {
-        $dashboard = new DashboardController();
-        return $dashboard->show($request);
+
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|FactoryAlias|View
      */
-    public function create()
+    public function create(): View|FactoryAlias|Application
     {
         return view('taskCreate');
     }
@@ -37,15 +41,15 @@ class TaskResourceController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return RedirectResponse
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $task = new Task(['name'=> $request->name,
             'description'=>$request->description,
             'schedule_date'=>$request->schedule_date,
-            'project_id'=>$request->segment(3)
+            'project_id'=>$request->project
             ]);
         $task->save();
         return redirect()->route('project.show',['project' => $request->project]);
@@ -54,59 +58,52 @@ class TaskResourceController extends Controller
     /**
      * Display the specified resource.
      *
+     * @param Project $project
      * @param Task $task
-     * @return \Illuminate\Http\Response
+     * @return Application|FactoryAlias|View
      */
-    public function show(Request $request)
+    public function show(Project $project, Task $task): View|FactoryAlias|Application
     {
-        $task = Task::query()->where('id',$request->task)->first();
-        if($task<>NULL){
-            return view('task')->with('task',$task);
-        }
-        else{
-            return redirect()->back();
-        }
+        return view('task')->with('task',$task);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Request $request
+     * @param Task $task
      * @return Application|FactoryAlias|View
      */
-    public function edit(Request $request)
+    public function edit(Project $project, Task $task): View|FactoryAlias|Application
     {
-        return view('taskEdit',['project' => $request->project, 'task' => $request->task, 'taskModel'=>Task::query()->find($request->task)]);
+        return view('taskEdit',['task' => $task]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      * @param Task $task
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
      */
-    public function update(Request $request)
+    public function update(Project $project, Task $task, Request $request): RedirectResponse
     {
-        $task = Task::query()->find($request->task);
         $task->name = $request->name;
         $task->description = $request->description;
         $task->schedule_date = $request->schedule_date;
         $task->save();
 
-        return redirect()->route('project.show',['project' => $request->project]);
+        return redirect()->route('project.show',['project' => $task->project_id]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param Task $task
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
      */
-    public function destroy(Request $request)
+    public function destroy(Project $project, Task $task): RedirectResponse
     {
-        $task = Task::query()->where('id',$request->task)->first();
         $task->delete();
-        return redirect()->route('project.show',['project' => $request->project]);
+        return redirect()->route('project.show',['project' => $task->project_id]);
     }
 }

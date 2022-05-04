@@ -21,19 +21,19 @@
         <div class="flex-column">
             <h2>Редактировать задачу</h2>
         </div>
-            <form action="{{route('task.update',['project'=> $project, 'task'=> $task])}}" method="post">
+            <form action="{{route('task.update',['project'=> $task->project_id, 'task'=> $task->id])}}" method="post">
                 @csrf
                 @method('put')
                 <p class="flex-column">
-                    <input type="text" id="name" placeholder="Название задачи" name="name">
+                    <input type="text" id="name" placeholder="{{$task->name}}" name="name">
                 </p>
                 <p  class="flex-column">
-                    <input type="text" id="description" placeholder="Новое описание задачи" name="description">
+                    <input type="text" id="description" placeholder="{{$task->description}}" name="description">
                 </p>
                 <p  class="flex-column">
-                    <input type="text" id="date" placeholder="{{$taskModel->schedule_date}}" name="schedule_date">
+                    <input type="text" id="date" placeholder="{{$task->schedule_date}}" name="schedule_date">
                 </p>
-                <p class="center-content"><input type="submit" value="Создать задачу"></p>
+                <p class="center-content"><input type="submit" value="Подтвердить изменения"></p>
             </form>
     </div>
 @endsection
@@ -46,7 +46,7 @@
         datepicker.options.setInputFormat("Y-m-d");
         datepicker.options.setDaysOutOfMonthVisible(true);
         datepicker.options.setMonthAsDropdown(false);
-        datepicker.options.setInitialDate('{{$taskModel->schedule_date}}');
+        datepicker.options.setInitialDate('{{$task->schedule_date}}');
         datepicker.render();
     </script>
 @endsection

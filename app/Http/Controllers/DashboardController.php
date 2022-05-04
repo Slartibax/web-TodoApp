@@ -2,13 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use App\Models\Project;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Session;
 
 class DashboardController extends Controller
 {
@@ -19,7 +15,6 @@ class DashboardController extends Controller
 
 
     /**
-     *
      * Решает на какой проект перенаправить пользователя
      * @param Request $request
      * @return RedirectResponse

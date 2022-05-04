@@ -12,10 +12,12 @@
         <button class="round icon iconInvite headerInvite" title="Invite people in this project" id="{{$project->id}}-Invite"></button>
     </div>
     <div class="headerButton center-content">
-        <form class="headerButton center-content" action="{{route('project.destroy',['project' => $project->id])}}" method="post">
-            @csrf
-            @method('delete')
-            <button id="delete" class="inputElement icon iconTrash round headerDelete" title="Delete this project" type="submit"></button>
-        </form>
+        @can('delete',$project)
+            <form class="headerButton center-content" action="{{route('project.destroy',['project' => $project->id])}}" method="post">
+                @csrf
+                @method('delete')
+                <button id="delete" class="inputElement icon iconTrash round headerDelete" title="Delete this project" type="submit"></button>
+            </form>
+        @endcan
     </div>
 </div>

@@ -18,6 +18,6 @@ class Task extends Model
 //Relations
 
     public function project(){
-        return $this->belongsTo(Project::class,'owner_id');
+        return $this->belongsTo(Project::class,'project_id');
     }
 }
