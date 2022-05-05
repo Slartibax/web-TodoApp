@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Views\Dashboard;
 use App\Models\Project;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
@@ -10,6 +11,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
 
 class ProjectResourceController extends Controller
@@ -24,11 +26,11 @@ class ProjectResourceController extends Controller
      * Display a listing of the resource.
      *
      * @param Request $request
-     * @return void
+     * @return Application|Redirector|RedirectResponse
      */
     public function index(Request $request)
     {
-
+        return redirect(RouteServiceProvider::HOME);
     }
 
     /**
@@ -38,7 +40,7 @@ class ProjectResourceController extends Controller
      */
     public function create(): View|Factory|Application
     {
-        return view('projectCreate');
+        return view('project.create');
     }
 
     /**
@@ -59,34 +61,16 @@ class ProjectResourceController extends Controller
      * Display the specified resource.
      *
      * @param Project $project
-     * @return Application|Factory|View|RedirectResponse
+     * @return Dashboard
      */
-    public function show(Project $project): View|Factory|RedirectResponse|Application
+    public function show(Project $project): Dashboard
     {
         $user = User::query()->where('id',Auth::id())->first();
 
         if ($project == NULL){
             return redirect()->route('project.show',['project'=>$user->projects()->first()->id]);
         }
-
-        $personal = $user->projects->filter(function($value, $key) {
-            return count($value->members) < 2;
-        });
-        $shared = $user->projects->filter(function($value, $key) {
-            return count($value->members) >= 2;
-        });
-
-        $members = $project->members;
-        $options = ['personal' => $personal, 'shared' => $shared];
-        $project = [ 'head' => $project, 'days' => $project->sortedDays()];
-
-        $data = ['user' => $user,
-            'project' => $project,
-            'options' => $options,
-            'members' => $members
-        ];
-
-        return view('dashboard')->with('data', $data);
+        return new Dashboard($project);
     }
 
     /**
@@ -97,7 +81,7 @@ class ProjectResourceController extends Controller
      */
     public function edit(Project $project): View|Factory|Application
     {
-        return view('projectEdit',['project' => $project]);
+        return view('project.edit',['project' => $project]);
     }
 
     /**
@@ -117,7 +101,7 @@ class ProjectResourceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Request $request
+     * @param Project $project
      * @return RedirectResponse
      */
     public function destroy(Project $project): RedirectResponse

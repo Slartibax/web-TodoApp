@@ -15,17 +15,8 @@ class Project extends Model
 
     protected $fillable = ['name', 'owner_id'];
     protected $guarded = ['id', 'created_at', 'updated_at'];
-
-    public function days(): Collection
-    {
-        return $this->tasks->mapToGroups(function ($item, $key){
-            return [$item->schedule_date => $item];
-        });
-    }
-
-    public function sortedDays(): array{
-        return $this->days()->sortKeys()->toArray();
-    }
+    protected $hidden = ['created_at', 'updated_at', 'owner_id'];
+    protected $dates = ['created_at', 'updated_at'];
 
     //Relations
     public function tasks(){
