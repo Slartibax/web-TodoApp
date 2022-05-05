@@ -123,5 +123,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="@types/jquery" level="application" />
+    <orderEntry type="library" name="thedatepicker" level="application" />
   </component>
 </module>
