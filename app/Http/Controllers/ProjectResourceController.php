@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use App\Models\User;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -13,6 +14,12 @@ use Illuminate\Support\Facades\Auth;
 
 class ProjectResourceController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Project::class);
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -51,13 +58,12 @@ class ProjectResourceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Request $request
+     * @param Project $project
      * @return Application|Factory|View|RedirectResponse
      */
-    public function show(Request $request): View|Factory|RedirectResponse|Application
+    public function show(Project $project): View|Factory|RedirectResponse|Application
     {
         $user = User::query()->where('id',Auth::id())->first();
-        $project = Project::query()->where('id', $request->project)->first();
 
         if ($project == NULL){
             return redirect()->route('project.show',['project'=>$user->projects()->first()->id]);
@@ -89,9 +95,8 @@ class ProjectResourceController extends Controller
      * @param Request $request
      * @return Application|Factory|View
      */
-    public function edit(Request $request): View|Factory|Application
+    public function edit(Project $project): View|Factory|Application
     {
-        $project = Project::query()->find($request->project);
         return view('projectEdit',['project' => $project]);
     }
 
@@ -101,9 +106,8 @@ class ProjectResourceController extends Controller
      * @param Request $request
      * @return RedirectResponse
      */
-    public function update(Request $request): RedirectResponse
+    public function update(Project $project, Request $request): RedirectResponse
     {
-        $project = Project::query()->find($request->project);
         $project->name = $request->name;
         $project->save();
 
@@ -116,14 +120,11 @@ class ProjectResourceController extends Controller
      * @param Request $request
      * @return RedirectResponse
      */
-    public function destroy(Request $request): RedirectResponse
+    public function destroy(Project $project): RedirectResponse
     {
-        $user = User::query()->where('id', Auth::id())->first();
-
-        $project = Project::query()->find($request->project);
         $project->members()->detach();
         $project->delete();
 
-        return redirect()->route('project.show',['project' => $user->projects->first()->id]);
+        return redirect(RouteServiceProvider::HOME);
     }
 }

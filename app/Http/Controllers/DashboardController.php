@@ -2,40 +2,37 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use App\Models\Project;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
-    public function show(Request $request)
+    public function __construct()
     {
-        $user = User::query()->where('id',Auth::id())->first();
-        $project = Project::query()->where('id', $request->project)->first();
+        $this->middleware('auth');
+    }
 
+
+    /**
+     * Решает на какой проект перенаправить пользователя
+     * @param Request $request
+     * @return RedirectResponse
+     */
+    public function resolve(Request $request)
+    {
+        $user = $request->user();
+        $project = $user->projects()->first();
         if ($project == NULL){
-            return redirect()->route('dashboard.show',['project'=>$user->projects()->first()->id]);
+            //initial project creation
+            $project = new Project(['name'=> "My Tasks", 'owner_id'=>$user->id]);
+            $project->save();
+
+            //Create relation in intermediate table
+            $user->projects()->attach($project->id);
         }
 
-        $personal = $user->projects->filter(function($value, $key) {
-            return count($value->members) < 2;
-        });
-        $shared = $user->projects->filter(function($value, $key) {
-            return count($value->members) >= 2;
-        });
-
-        $members = $project->members;
-        $options = ['personal' => $personal, 'shared' => $shared];
-        $project = [ 'head' => $project, 'days' => $project->sortedDays()];
-
-        //TODO Сделать нормальную передачу данных
-        $data = ['user' => $user,
-            'project' => $project,
-            'options' => $options,
-            'members' => $members
-        ];
-//        return dd($data);
-        return view('dashboard')->with('data', $data);
+        return redirect()->route('project.show',['project' => $project->id]);
     }
+
 }
