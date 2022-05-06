@@ -51,7 +51,7 @@ class TaskResourceController extends Controller
         $task = new Task(['name'=> $request->name,
             'description'=>$request->description,
             'schedule_date'=>$request->schedule_date,
-            'project_id'=>$project
+            'project_id'=>$project->id
             ]);
         $task->save();
         return redirect()->route('project.show',['project' => $project]);

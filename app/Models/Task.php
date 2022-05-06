@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Task extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory/*, SoftDeletes*/;
 
     protected $table = 'tasks';
-    protected $dates = ['deleted_at', 'created_at', 'updated_at'];
+    protected $dates = [/*'deleted_at',*/ 'created_at', 'updated_at'];
 
     protected $fillable = ['name', 'description', 'schedule_date', 'project_id'];
     protected $hidden = ['created_at', 'updated_at'];

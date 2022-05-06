@@ -2,6 +2,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: 27px;
+    display:flex;
 }
 
 .iconSchedule {
@@ -54,4 +55,11 @@
     background-image: url(icons/trash.svg);
     height: 35px;
     width: 35px;
+}
+
+.iconRadioCheck {
+    background-image: url(icons/radio-check.svg);
+    height: 35px;
+    width: 35px;
+    border-radius: 3rem;
 }

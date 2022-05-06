@@ -43,8 +43,11 @@ class TaskPolicy
      */
     public function create(User $user): bool
     {
-        $project = Project::query()->find(\request()->project);
-        return $project->members()->get()->contains($user);
+        //Не знаю, пока, что тут не так, но от раза к разу работает по разному, то модель извлекается сама, то не извлекается и выдет строку, поэтому пока так
+        if (is_string(\request()->project)){
+            return Project::query()->find(\request()->project)->members->contains($user);
+        }
+        return \request()->project->members->contains($user);
     }
 
     /**

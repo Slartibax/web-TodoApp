@@ -1,7 +1,12 @@
 <div class="Task">
     <div class="TaskNameAndChk">
-        <div>
-            <input class="check" type="checkbox">
+        <div class="center-content checkArea">
+            <form class="center-content checkArea" action="{{route('task.destroy',['project' => $task['project_id'],'task' => $task['id']])}}" method="post">
+                @method('delete')
+                @csrf
+                <label class="center-content checkArea" for="{{$task['id']}}-complete" type="checkbox"> <a class="icon iconRadioCheck"></a></label>
+                <input class="invisible" id="{{$task['id']}}-complete" type="submit">
+            </form>
         </div>
         <div class="taskName round chkShader">
             <a class="round" id="{{$task['id']}}" href="{{route('task.show',['project' => $task['project_id'],'task' => $task['id']])}}">{{$task['name']}}</a>

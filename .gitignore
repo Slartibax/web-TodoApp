@@ -2,6 +2,7 @@
 /public/hot
 /public/storage
 /public/app.css
+/public/css/app.css
 /public/js/app.js
 /storage/*.key
 /storage/users data
