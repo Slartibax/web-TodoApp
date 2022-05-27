@@ -10,6 +10,8 @@ use Illuminate\Contracts\View\Factory as FactoryAlias;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use function redirect;
+use function view;
 
 class TaskResourceController extends Controller
 {

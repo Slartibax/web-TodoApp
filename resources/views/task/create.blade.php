@@ -21,7 +21,7 @@
         <div class="flex-column">
             <h2>Создать новую задачу</h2>
         </div>
-        <form action="{{route('task.store',['project'=> back()->getRequest()->project])}}" method="post">
+        <form action="{{route('project.task.store',['project'=> back()->getRequest()->project])}}" method="post">
             @csrf
             <p class="flex-column">
                 <input type="text" id="name" placeholder="Название задачи" name="name">

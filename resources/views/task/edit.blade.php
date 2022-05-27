@@ -21,7 +21,7 @@
         <div class="flex-column">
             <h2>Редактировать задачу</h2>
         </div>
-            <form action="{{route('task.update',['project'=> $task->project_id, 'task'=> $task->id])}}" method="post">
+            <form action="{{route('project.task.update',['project'=> $task->project_id, 'task'=> $task->id])}}" method="post">
                 @csrf
                 @method('put')
                 <p class="flex-column">

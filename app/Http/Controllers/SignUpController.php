@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
+use function back;
+use function bcrypt;
+use function redirect;
+use function view;
 
 class SignUpController extends Controller
 {

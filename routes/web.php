@@ -2,10 +2,6 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\SignUpController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\MailConfirmController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +17,9 @@ use App\Http\Controllers\MailConfirmController;
 Auth::routes(['verify' => false]);
 
 Route::middleware('auth')->prefix('/dashboard')->group(function (){
-    Route::get('',[DashboardController::class, 'resolve'])->name('dashboard');
-    Route::resource('project',\App\Http\Controllers\ProjectResourceController::class);
-    Route::resource('project/{project}/task',\App\Http\Controllers\TaskResourceController::class);
+    Route::get('',[\App\Http\Controllers\DashboardController::class, 'resolve'])->name('dashboard');
+    Route::resource('project', \App\Http\Controllers\ProjectResourceController::class);
+    Route::resource('project.task', \App\Http\Controllers\TaskResourceController::class);
 });
 
 Route::fallback(function (){return redirect()->route('login');});
