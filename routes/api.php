@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\V1\LoginController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,12 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Эта обертка для более корректного именования маршрутов
-Route::name('api.')->group(function(){
 
-    Route::prefix('v1')->namespace('App\Http\Controllers\Api\V1')->group(function (){
-        Route::apiResource('projects','ProjectsController');
-        Route::apiResource('projects.tasks','TasksController');
+Route::name('api.')->namespace('App\Http\Controllers\Api')->group(function(){
+    Route::prefix('v1')->namespace('V1')->group(function (){
+
+        Route::post('/login',[LoginController::class, 'login'])->name('login');
+
+        Route::middleware(['auth:sanctum'])->group(function(){
+            Route::apiResource('projects','ProjectsController');
+            Route::apiResource('projects.tasks','TasksController');
+        });
     });
 
 });
