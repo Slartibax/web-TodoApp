@@ -26,7 +26,7 @@ class TaskResourceController extends Controller
      *
      * @return RedirectResponse
      */
-    public function index(): RedirectResponse
+    public function index(Project $project): RedirectResponse
     {
         return redirect(RouteServiceProvider::HOME);
     }

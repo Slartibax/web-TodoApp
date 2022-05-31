@@ -11,6 +11,12 @@ use Illuminate\Http\Response;
 
 class TasksController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Task::class);
+
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -26,12 +32,13 @@ class TasksController extends Controller
     /**
      * Store a newly created resource in storage.
      *
+     * @param Project $project
      * @param Request $request
      * @return JsonResponse
      */
-    public function store(Request $request): JsonResponse
+    public function store(Project $project, Request $request): JsonResponse
     {
-        $task = Task::create($request);
+        $task = Task::create($project, $request);
 
         return response()->json($task, 201);
     }
@@ -45,7 +52,6 @@ class TasksController extends Controller
      */
     public function show(Project $project, Task $task): JsonResponse
     {
-
         return response()->json($task, 200);
     }
 

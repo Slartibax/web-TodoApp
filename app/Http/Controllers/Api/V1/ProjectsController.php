@@ -9,9 +9,16 @@ use App\Models\Project;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectsController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Project::class);
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +26,8 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        return response()->json(Project::all(), 200);
+
+        return response()->json(Auth::user()->projects, 200);
     }
 
     /**

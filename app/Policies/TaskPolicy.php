@@ -20,7 +20,7 @@ class TaskPolicy
      */
     public function viewAny(User $user): bool
     {
-        return true;
+        return \request()->project->members()->get()->contains($user);
     }
 
     /**
@@ -71,6 +71,7 @@ class TaskPolicy
      */
     public function delete(User $user, Task $task): bool
     {
+
         return $task->project->members()->get()->contains($user);
     }
 
