@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TaskCreateOrUpdateRequest;
 use App\Models\Project;
 use App\Models\Task;
 use App\Providers\RouteServiceProvider;
@@ -26,7 +27,7 @@ class TaskResourceController extends Controller
      *
      * @return RedirectResponse
      */
-    public function index(Project $project): RedirectResponse
+    public function index(Project $project)
     {
         return redirect(RouteServiceProvider::HOME);
     }
@@ -36,7 +37,7 @@ class TaskResourceController extends Controller
      *
      * @return Application|FactoryAlias|View
      */
-    public function create(): View|FactoryAlias|Application
+    public function create()
     {
         return view('task.create');
     }
@@ -45,17 +46,17 @@ class TaskResourceController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Project $project
-     * @param Request $request
+     * @param TaskCreateOrUpdateRequest $request
      * @return RedirectResponse
      */
-    public function store(Project $project, Request $request): RedirectResponse
+    public function store(Project $project, TaskCreateOrUpdateRequest $request)
     {
-        $task = new Task(['name'=> $request->name,
-            'description'=>$request->description,
-            'schedule_date'=>$request->schedule_date,
-            'project_id'=>$project->id
-            ]);
+        $validated = $request->validated();
+        $validated['project_id'] = $project->id;
+
+        $task = new Task($validated);
         $task->save();
+
         return redirect()->route('project.show',['project' => $project]);
     }
 
@@ -66,7 +67,7 @@ class TaskResourceController extends Controller
      * @param Task $task
      * @return Application|FactoryAlias|View
      */
-    public function show(Project $project, Task $task): View|FactoryAlias|Application
+    public function show(Project $project, Task $task)
     {
         return view('task.show')->with('task',$task);
     }
@@ -78,7 +79,7 @@ class TaskResourceController extends Controller
      * @param Task $task
      * @return Application|FactoryAlias|View
      */
-    public function edit(Project $project, Task $task): View|FactoryAlias|Application
+    public function edit(Project $project, Task $task)
     {
         return view('task.edit',['task' => $task]);
     }
@@ -88,15 +89,12 @@ class TaskResourceController extends Controller
      *
      * @param Project $project
      * @param Task $task
-     * @param Request $request
+     * @param TaskCreateOrUpdateRequest $request
      * @return RedirectResponse
      */
-    public function update(Project $project, Task $task, Request $request): RedirectResponse
+    public function update(Project $project, Task $task, TaskCreateOrUpdateRequest $request)
     {
-        $task->name = $request->name;
-        $task->description = $request->description;
-        $task->schedule_date = $request->schedule_date;
-        $task->save();
+        $task->update($request->validated());
 
         return redirect()->route('project.show',['project' => $task->project_id]);
     }
@@ -108,7 +106,7 @@ class TaskResourceController extends Controller
      * @param Task $task
      * @return RedirectResponse
      */
-    public function destroy(Project $project, Task $task): RedirectResponse
+    public function destroy(Project $project, Task $task)
     {
         $task->delete();
         return redirect()->route('project.show',['project' => $task->project_id]);

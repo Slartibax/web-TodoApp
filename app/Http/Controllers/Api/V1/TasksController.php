@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\TaskCreateOrUpdateRequest;
 use App\Models\Project;
 use App\Models\Task;
 use Illuminate\Http\JsonResponse;
@@ -33,12 +34,16 @@ class TasksController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Project $project
-     * @param Request $request
+     * @param TaskCreateOrUpdateRequest $request
      * @return JsonResponse
      */
-    public function store(Project $project, Request $request): JsonResponse
+    public function store(Project $project, TaskCreateOrUpdateRequest $request): JsonResponse
     {
-        $task = Task::create($project, $request);
+        $validated = $request->validated();
+        $validated['project_id'] = $project->id;
+
+        $task = new Task($validated);
+        $task->save();
 
         return response()->json($task, 201);
     }
@@ -58,14 +63,14 @@ class TasksController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param TaskCreateOrUpdateRequest $request
      * @param Project $project
      * @param Task $task
      * @return JsonResponse
      */
-    public function update(Request $request, Project $project, Task $task): JsonResponse
+    public function update(TaskCreateOrUpdateRequest $request, Project $project, Task $task): JsonResponse
     {
-        $task->update($request->all());
+        $task->update($request->validated());
 
         return response()->json($task);
     }

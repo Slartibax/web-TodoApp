@@ -30,20 +30,6 @@ class Task extends Model
     protected $fillable = ['name', 'description', 'schedule_date', 'project_id'];
     protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
 
-    /**
-     * @param Project $project
-     * @param Request $request
-     * @return Task
-     */
-    public static function create(Project $project, Request $request){
-        $task = new Task(['name'=> $request->name,
-            'description'=>$request->description,
-            'schedule_date'=>$request->schedule_date,
-            'project_id'=>$project->id
-        ]);
-        $task->save();
-        return $task;
-    }
 
 //Relations
 
