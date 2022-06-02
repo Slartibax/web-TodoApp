@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProjectStoreOrUpdateRequest;
 use App\Http\Views\Dashboard;
 use App\Models\Project;
 use App\Models\User;
@@ -48,14 +49,18 @@ class ProjectResourceController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param ProjectStoreOrUpdateRequest $request
      * @return RedirectResponse
      */
-    public function store(Request $request): RedirectResponse
+    public function store(ProjectStoreOrUpdateRequest $request): RedirectResponse
     {
-        $project = new Project(['name' => $request->project_name, 'owner_id' => $request->user()->id]);
+        $validated = $request->validated();
+        $validated['owner_id'] = $request->user()->id;
+
+        $project = new Project($validated);
         $project->save();
-        $request->user()->projects()->attach($project->id);
+        $request->user()->projects()->attach($project);
+
         return redirect()->route('project.show',['project'=>$project->id]);
     }
 
@@ -63,9 +68,9 @@ class ProjectResourceController extends Controller
      * Display the specified resource.
      *
      * @param Project $project
-     * @return Dashboard
+     * @return RedirectResponse
      */
-    public function show(Project $project): Dashboard
+    public function show(Project $project)
     {
         $user = User::query()->where('id',Auth::id())->first();
 
@@ -92,9 +97,10 @@ class ProjectResourceController extends Controller
      * @param Request $request
      * @return RedirectResponse
      */
-    public function update(Project $project, Request $request): RedirectResponse
+    public function update(Project $project, ProjectStoreOrUpdateRequest $request): RedirectResponse
     {
-        $project->name = $request->name;
+        $validated = $request->validated();
+        $project->update($validated);
         $project->save();
 
         return redirect()->route('project.show',['project' => $project->id]);

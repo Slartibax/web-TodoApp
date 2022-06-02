@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProjectStoreOrUpdateRequest;
 use App\Http\Resources\Project\ProjectCollection;
 use App\Http\Resources\Project\ProjectResource;
 use App\Models\Project;
@@ -24,7 +25,7 @@ class ProjectsController extends Controller
      *
      * @return JsonResponse
      */
-    public function index()
+    public function index(): JsonResponse
     {
 
         return response()->json(Auth::user()->projects, 200);
@@ -33,12 +34,18 @@ class ProjectsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param ProjectStoreOrUpdateRequest $request
      * @return JsonResponse
      */
-    public function store(Request $request): JsonResponse
+    public function store(ProjectStoreOrUpdateRequest $request): JsonResponse
     {
-        $project = Project::create($request);
+        $validated = $request->validated();
+        $validated['owner_id'] = $request->user()->id;
+
+        $project = new Project($validated);
+        $project->save();
+        $request->user()->projects()->attach($project);
+
         return response()->json($project, 201);
     }
 
@@ -50,20 +57,20 @@ class ProjectsController extends Controller
      */
     public function show(Project $project): JsonResponse
     {
+        $project->load('members');
         return response()->json($project, 200);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param ProjectStoreOrUpdateRequest $request
      * @param Project $project
      * @return JsonResponse
      */
-    public function update(Request $request, Project $project): JsonResponse
+    public function update(ProjectStoreOrUpdateRequest $request, Project $project): JsonResponse
     {
-        $project->update($request->all());
-
+        $project->update($request->validated());
         return response()->json($project, 200);
     }
 
@@ -73,7 +80,7 @@ class ProjectsController extends Controller
      * @param Project $project
      * @return JsonResponse
      */
-    public function destroy(Project $project)
+    public function destroy(Project $project): JsonResponse
     {
         $project->members()->detach();
         $project->delete();

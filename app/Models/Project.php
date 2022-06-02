@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class Project extends Model
 {
@@ -29,13 +31,6 @@ class Project extends Model
     protected $dates = ['created_at', 'updated_at'];
 
 
-    public static function create(Request $request){
-        $project = new Project(['name' => $request->name, 'owner_id' => $request->owner_id]);
-        $project->save();
-        $user = User::query()->find($request->owner_id);
-        $user->projects()->attach($project->id);
-        return $project;
-    }
 
     //Relations
     public function tasks(){
