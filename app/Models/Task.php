@@ -28,7 +28,7 @@ class Task extends Model
     protected $dates = ['deleted_at', 'created_at', 'updated_at'];
 
     protected $fillable = ['name', 'description', 'schedule_date', 'project_id'];
-    protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
+    protected $hidden = ['created_at', 'updated_at', 'deleted_at', 'project'];
 
 
 //Relations

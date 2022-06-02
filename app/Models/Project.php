@@ -27,7 +27,7 @@ class Project extends Model
 
     protected $fillable = ['name', 'owner_id'];
     protected $guarded = ['id', 'created_at', 'updated_at'];
-    protected $hidden = ['created_at', 'updated_at'];
+    protected $hidden = ['created_at', 'updated_at', 'pivot'];
     protected $dates = ['created_at', 'updated_at'];
 
 

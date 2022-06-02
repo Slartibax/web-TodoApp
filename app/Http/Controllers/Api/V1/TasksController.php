@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TaskCreateOrUpdateRequest;
+use App\Http\Resources\Task\TaskResource;
 use App\Models\Project;
 use App\Models\Task;
 use Illuminate\Http\JsonResponse;
@@ -55,9 +56,9 @@ class TasksController extends Controller
      * @param Task $task
      * @return JsonResponse
      */
-    public function show(Project $project, Task $task): JsonResponse
+    public function show(Project $project, Task $task)
     {
-        return response()->json($task, 200);
+        return new TaskResource($task);
     }
 
     /**
@@ -72,7 +73,7 @@ class TasksController extends Controller
     {
         $task->update($request->validated());
 
-        return response()->json($task);
+        return response()->json($task, 202);
     }
 
     /**
@@ -86,6 +87,6 @@ class TasksController extends Controller
     {
         $task->delete();
 
-        return response()->json(null, 204);
+        return response()->json(null, 200);
     }
 }

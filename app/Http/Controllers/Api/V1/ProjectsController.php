@@ -9,6 +9,7 @@ use App\Http\Resources\Project\ProjectResource;
 use App\Models\Project;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,9 +26,8 @@ class ProjectsController extends Controller
      *
      * @return JsonResponse
      */
-    public function index(): JsonResponse
+    public function index()
     {
-
         return response()->json(Auth::user()->projects, 200);
     }
 
@@ -53,12 +53,12 @@ class ProjectsController extends Controller
      * Display the specified resource.
      *
      * @param Project $project
-     * @return JsonResponse
+     * @return ProjectResource
      */
-    public function show(Project $project): JsonResponse
+    public function show(Project $project)
     {
         $project->load('members');
-        return response()->json($project, 200);
+        return new ProjectResource($project);
     }
 
     /**
@@ -71,7 +71,7 @@ class ProjectsController extends Controller
     public function update(ProjectStoreOrUpdateRequest $request, Project $project): JsonResponse
     {
         $project->update($request->validated());
-        return response()->json($project, 200);
+        return response()->json($project, 202);
     }
 
     /**
@@ -85,6 +85,6 @@ class ProjectsController extends Controller
         $project->members()->detach();
         $project->delete();
 
-        return response()->json(null , 204);
+        return response()->json(null , 200);
     }
 }
