@@ -24,7 +24,7 @@
         <form action="{{route('project.store')}}" method="post">
             @csrf
             <p class="flex-column">
-                <input type="text" id="name" placeholder="Название проекта" name="project_name">
+                <input type="text" id="name" placeholder="Название проекта" name="name">
             </p>
             <p class="center-content"><input type="submit" value="Создать проект"></p>
         </form>

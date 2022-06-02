@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\TaskCreateOrUpdateRequest;
+use App\Http\Requests\TaskStoreOrUpdateRequest;
 use App\Http\Resources\Task\TaskResource;
 use App\Models\Project;
 use App\Models\Task;
@@ -35,10 +35,10 @@ class TasksController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Project $project
-     * @param TaskCreateOrUpdateRequest $request
+     * @param TaskStoreOrUpdateRequest $request
      * @return JsonResponse
      */
-    public function store(Project $project, TaskCreateOrUpdateRequest $request): JsonResponse
+    public function store(Project $project, TaskStoreOrUpdateRequest $request): JsonResponse
     {
         $validated = $request->validated();
         $validated['project_id'] = $project->id;
@@ -64,12 +64,12 @@ class TasksController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param TaskCreateOrUpdateRequest $request
+     * @param TaskStoreOrUpdateRequest $request
      * @param Project $project
      * @param Task $task
      * @return JsonResponse
      */
-    public function update(TaskCreateOrUpdateRequest $request, Project $project, Task $task): JsonResponse
+    public function update(TaskStoreOrUpdateRequest $request, Project $project, Task $task): JsonResponse
     {
         $task->update($request->validated());
 

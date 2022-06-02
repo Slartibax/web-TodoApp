@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TaskCreateOrUpdateRequest extends FormRequest
+class TaskStoreOrUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +25,7 @@ class TaskCreateOrUpdateRequest extends FormRequest
     {
         return [
             'name' => 'required|string|min:1|max:70',
-            'description' => 'string|max:250',
+            'description' => 'nullable|string|max:250',
             'schedule_date' => 'required|date_format:Y-m-d|after_or_equal:today',
         ];
     }

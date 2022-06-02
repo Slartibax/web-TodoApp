@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\TaskCreateOrUpdateRequest;
+use App\Http\Requests\TaskStoreOrUpdateRequest;
 use App\Models\Project;
 use App\Models\Task;
 use App\Providers\RouteServiceProvider;
@@ -46,10 +46,10 @@ class TaskResourceController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Project $project
-     * @param TaskCreateOrUpdateRequest $request
+     * @param TaskStoreOrUpdateRequest $request
      * @return RedirectResponse
      */
-    public function store(Project $project, TaskCreateOrUpdateRequest $request)
+    public function store(Project $project, TaskStoreOrUpdateRequest $request)
     {
         $validated = $request->validated();
         $validated['project_id'] = $project->id;
@@ -89,10 +89,10 @@ class TaskResourceController extends Controller
      *
      * @param Project $project
      * @param Task $task
-     * @param TaskCreateOrUpdateRequest $request
+     * @param TaskStoreOrUpdateRequest $request
      * @return RedirectResponse
      */
-    public function update(Project $project, Task $task, TaskCreateOrUpdateRequest $request)
+    public function update(Project $project, Task $task, TaskStoreOrUpdateRequest $request)
     {
         $task->update($request->validated());
 

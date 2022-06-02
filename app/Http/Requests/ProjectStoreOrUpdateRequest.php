@@ -29,9 +29,4 @@ class ProjectStoreOrUpdateRequest extends FormRequest
         ];
     }
 
-    protected function prepareForValidation()
-    {
-
-    }
-
 }

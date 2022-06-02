@@ -52,7 +52,7 @@ class ProjectResourceController extends Controller
      * @param ProjectStoreOrUpdateRequest $request
      * @return RedirectResponse
      */
-    public function store(ProjectStoreOrUpdateRequest $request): RedirectResponse
+    public function store(ProjectStoreOrUpdateRequest $request)
     {
         $validated = $request->validated();
         $validated['owner_id'] = $request->user()->id;
